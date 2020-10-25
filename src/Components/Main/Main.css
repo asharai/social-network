@@ -1,0 +1,48 @@
+.main{
+    width: 70%;
+    margin-top: 100px;
+    height: 600px;
+    background-image: url('https://img1.akspic.ru/image/137145-novost-graffiti-ulichnoe_iskusstvo-karmin-art-1920x1080.jpg');
+    background-position: center center;
+    background-size: cover;
+    display: flex;
+    align-items: flex-end;
+}
+.main__menu{
+    display: flex;
+    list-style: none;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    margin: 0;
+    padding: 20px 40px;
+}
+.main__personInfo{
+    position: relative;
+
+}
+.main__personInfo > h1,.main__personInfo>h5{
+    margin: 0;
+}
+.main__personInfo>h5{
+    color: #9a9fbf;
+    font-weight: normal;
+}
+.main__personImg{
+    height: 80px;
+    width: 80px;
+    position: absolute;
+    border-radius: 50%;
+    top:-75px;
+    left: 30px;
+    border: 5px solid #fff;
+}
+.main__menuItem{
+    text-decoration: none;
+    color: #9a9fbf;
+    font-weight: bold;
+}
+.main__menuItem:hover{
+     color:#ff5e3a;
+ }

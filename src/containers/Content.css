@@ -1,0 +1,6 @@
+.content{
+    display: flex;
+    justify-content: center;
+    background-color:#edf2f6;
+    min-height: 100vh;
+}
