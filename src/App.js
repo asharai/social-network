@@ -2,7 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from "./Components/Header/Header";
-import Content from "./containers/Content";
+import PersonInfo from "./containers/PersonInfo/PersonInfo";
 import Sidebar from "./Components/Sidebar/Sidebar";
 
 
@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <Header/>
       <Sidebar/>
-  <Content/>
+  <PersonInfo/>
     </div>
   );
 }

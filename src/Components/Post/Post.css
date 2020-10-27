@@ -1,0 +1,25 @@
+.post{
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+.post__feed{
+    display: flex;
+    justify-content: space-between;
+}
+.post__feedShare{
+    width: 80px;
+    display: flex;
+    justify-content: space-between;
+}
+.post__info{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.post__infoName{
+    margin: 0;
+}
+.post__infoDate{
+    margin: 5px;
+}

@@ -1,0 +1,25 @@
+.content{
+    margin-top: 20px;
+    display: grid;
+    width: 70%;
+    grid-gap: 50px;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+.sideContainer__listImg{
+display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    list-style: none;
+    grid-gap: 1px;
+    padding: 0;
+}
+.sideContainer__listImg>li>img{
+width: 85px;
+height: 85px;
+    border-radius: 5px;
+}
+.content__list{
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    /*justify-content: space-between;*/
+}

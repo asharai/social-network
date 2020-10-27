@@ -1,0 +1,17 @@
+.sideContainer{
+    background-color: #fff;
+    margin-top: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+.sideContainer__title{
+    margin-top: 0px;
+    text-align: left;
+    margin-bottom: 0;
+    color: #515365;
+    border-bottom: 1px solid #e6ecf5;
+    padding:15px 25px;
+}
+.sideContainer__content{
+    padding: 5px 20px;
+}
