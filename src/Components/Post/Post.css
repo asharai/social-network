@@ -6,9 +6,20 @@
 .post__feed{
     display: flex;
     justify-content: space-between;
+    align-items: center;
+}
+.post__infoPerson{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.post__infoPersonImg{
+    height: 50px;
+    width: 50px;
+    margin-right: 10px;
 }
 .post__feedShare{
-    width: 80px;
+    width: 100px;
     display: flex;
     justify-content: space-between;
 }
@@ -19,7 +30,26 @@
 }
 .post__infoName{
     margin: 0;
+    color: #515365;
 }
 .post__infoDate{
     margin: 5px;
+}
+.post__feedLikes{
+    display: flex;
+    width: 40px;
+    justify-content: space-between;
+}
+.post__feedItem:hover{
+color: #ff5e3a;
+}
+.post___feedShare__count{
+    display: flex;
+    justify-content: space-between;
+    width: 45px;
+}
+.post__text{
+    text-align: left;
+    border-bottom: 1px solid #e6ecf5;
+    padding-bottom: 15px;
 }
