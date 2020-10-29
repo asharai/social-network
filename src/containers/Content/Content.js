@@ -2,12 +2,13 @@ import React from 'react';
 import Posts from "../../Components/Posts/Posts";
 import './Content.css'
 import SideContainer from "../SideContainer/SideContainer";
+import ProfileIntro from "../../Components/ProfileIntro/ProfileIntro";
 const Content = () => {
     return (
         <div className="content">
             <div className="content__list">
                 <SideContainer title="Profile Intro">
-
+                <ProfileIntro/>
                 </SideContainer>
                 <SideContainer title="My Playlist">
 

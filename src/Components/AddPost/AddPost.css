@@ -1,0 +1,42 @@
+.addPost{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.addPost__container{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.addPost__input{
+    width: 100%;
+    height: 50px;
+    outline: none;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    resize: none;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+.addPost__input:active,.addPost__input:focus{
+height: 100px;
+}
+.addPost__btn{
+    align-self: flex-end;
+    margin-bottom: 10px;
+    outline: none;
+    border: none;
+    background-color: #ff5e3a;
+    padding: 7px 15px;
+    cursor: pointer;
+    width: 150px;
+    color: white;
+    border-radius: 5px;
+}

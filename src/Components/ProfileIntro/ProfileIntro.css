@@ -1,0 +1,38 @@
+.profileIntro__linksItem{
+    list-style: none;
+    width: 100%;
+}
+.profileIntro__linksItem > a{
+   color: white;
+    height: 100%;
+
+    display: block;
+    margin-bottom: 10px;
+
+}
+.profileIntro__linksItemFacebook{
+    background-color: #2f5b9d;
+}
+.profileIntro__linksItemTwitter{
+    background-color: #38bff1;
+}
+.profileIntro__linksItemGithub{
+    background-color: #3f4257;
+}
+.profileIntro__linksList{
+    padding: 0;
+}
+.profileIntro__infoList{
+    list-style: none;
+}
+.profileIntro__infoList > li > p{
+    margin: 0;
+    text-align: left;
+    font-size: 14px;
+}
+.profileIntro__infoList{
+    padding: 0;
+}
+.profileIntro__infoList > li {
+    margin-bottom: 10px;
+}
