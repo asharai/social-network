@@ -3,11 +3,23 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {createStore,applyMiddleware,compose} from "redux";
+import {Provider} from 'react-redux';
+import postReducer from "./store/reducers/Posts";
+import thunk  from "redux-thunk";
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const store = createStore(postReducer,composeEnhancers(applyMiddleware(thunk)));
+store.getState()
+const app = (
+    <Provider store={store}>
+        <React.StrictMode>
+            <App />
+        </React.StrictMode>,
+    </Provider>
+)
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+    app,
   document.getElementById('root')
 );
 
