@@ -4,10 +4,10 @@ import AddPost from "../AddPost/AddPost";
 import './Posts.css';
 import * as postsActions from '../../store/actions/Posts';
 import {connect} from 'react-redux';
-const Posts = ({onGetPosts,posts}) => {
+const Posts = ({onGetPosts,posts,loading}) => {
     useEffect(()=>{
         onGetPosts();
-    },[])
+    },[loading])
 
     const createPost = () =>{
         let arr = [];
@@ -21,7 +21,7 @@ const Posts = ({onGetPosts,posts}) => {
     }
 
     const post = createPost();
-
+console.log(loading)
     return (
         <div>
             <AddPost/>
@@ -32,6 +32,7 @@ const Posts = ({onGetPosts,posts}) => {
 const mapStateToProps = state => {
     return {
         posts: state.posts,
+        loading:state.loading
 
     };
 }

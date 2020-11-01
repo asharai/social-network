@@ -15,7 +15,7 @@
 }
 .addPost__input{
     width: 100%;
-    height: 50px;
+    height: 100px;
     outline: none;
     border: none;
     border-radius: 5px;
@@ -25,9 +25,7 @@
     box-sizing: border-box;
     transition: all 0.2s;
 }
-.addPost__input:active,.addPost__input:focus{
-height: 100px;
-}
+
 .addPost__btn{
     align-self: flex-end;
     margin-bottom: 10px;

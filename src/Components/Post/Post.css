@@ -2,6 +2,7 @@
     background-color: #fff;
     padding: 20px;
     border-radius: 5px;
+    margin-bottom: 10px;
 }
 .post__feed{
     display: flex;
