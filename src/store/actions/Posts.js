@@ -12,7 +12,12 @@ export const addedPost = (post)=>{
         post:post
     }
 }
-
+export const deletedPost = (id)=>{
+    return{
+        type:'DELETE_POST',
+        id:id
+    }
+}
 export const getPosts = ()=>{
     return dispatch =>{
         axios.get('https://social-network-956c5.firebaseio.com/posts.json')
@@ -37,5 +42,14 @@ export const addPost = (post) =>{
             .catch(error => {
               console.log(error)
             })
+    }
+}
+export const deletePost = (id)=>{
+    return dispatch =>{
+        axios.delete('https://social-network-956c5.firebaseio.com/posts.json',{data:{id:id}})
+            .then(res=>{
+            dispatch(deletedPost(id))
+        })
+            .catch(err=>console.log(err))
     }
 }

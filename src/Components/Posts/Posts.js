@@ -7,16 +7,11 @@ import {connect} from 'react-redux';
 const Posts = ({onGetPosts,posts,loading}) => {
     useEffect(()=>{
         onGetPosts();
-    },[loading])
+    },[])
 
     const createPost = () =>{
-        let arr = [];
-        for(let key in posts){
-            arr.push(posts[key])
-        }
-        return arr.map(item=>{
-            return <Post  comments={18} text={item.text}  idx={item.id} shares={item.shares} />
-
+        return posts.sort((a,b)=>b.date-a.date).map(item=>{
+            return <Post  comments={18} text={item.text}  idx={item.id} shares={item.shares} date={item.date} />
         })
     }
 
@@ -31,8 +26,8 @@ console.log(loading)
 };
 const mapStateToProps = state => {
     return {
-        posts: state.posts,
-        loading:state.loading
+        posts: state.posts
+
 
     };
 }

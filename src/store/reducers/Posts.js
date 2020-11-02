@@ -1,6 +1,6 @@
 const initialState = {
    posts:[],
-    loading:false
+  
 };
 const reducer = (state=initialState, action)=>{
     switch (action.type) {
@@ -12,9 +12,14 @@ const reducer = (state=initialState, action)=>{
         case 'ADD_POST':
             return {
                 ...state,
-                loading:true,
                 posts:state.posts.concat(action.post)
             };
+        case 'DELETE_POST':
+            let idx = state.posts.findIndex(item=>item.id==action.id)
+            return{
+                ...state,
+                posts: state.posts.slice(0,idx).concat(state.posts.slice(idx+1))
+            }
         default:
             return state;
     }
