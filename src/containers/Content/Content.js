@@ -3,23 +3,28 @@ import Posts from "../../Components/Posts/Posts";
 import './Content.css'
 import SideContainer from "../SideContainer/SideContainer";
 import ProfileIntro from "../../Components/ProfileIntro/ProfileIntro";
+import BlogPost from "../../Components/BlogPost/BlogPost";
+import SongList from "../../Components/Song/SongList/SongList";
+import FriendsProfileIntro from "../../Components/Friends/FriendsProfileIntro/FriendsProfileIntro";
+import FavouritePages from "../../Components/FavouritePages/FavouritePages";
 const Content = () => {
+
     return (
         <div className="content">
             <div className="content__list">
-                <SideContainer title="Profile Intro">
+                <SideContainer title="Profile Intro" needPadding>
                 <ProfileIntro/>
                 </SideContainer>
                 <SideContainer title="My Playlist">
-
+                <SongList/>
                 </SideContainer>
-                <SideContainer title="Twitter Feed">
-
+                <SideContainer title="Favourite Pages" needPadding>
+                <FavouritePages/>
                 </SideContainer>
             </div>
             <Posts/>
             <div  className="content__list">
-                <SideContainer title="Last Photos">
+                <SideContainer title="Last Photos" needPadding>
                 <ul className="sideContainer__listImg">
                     <li><img src="https://images.unsplash.com/photo-1586985288123-2495f577c250?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt=""/></li>
                     <li><img src="https://images.unsplash.com/photo-1510972527921-ce03766a1cf1?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80" alt=""/></li>
@@ -34,13 +39,15 @@ const Content = () => {
                 </SideContainer>
                 <SideContainer title="Blog Posts">
 
-                </SideContainer>
-                <SideContainer title="Friends">
+                    <BlogPost title="Remote work problems and how we solved them" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae dolore harum ipsa magnam maxime nemo non odio recusandae! Delectus et, excepturi expedita facere magnam officiis quisquam similique ullam veniam." date="2 hours ago"/>
+                    <BlogPost title="How to become developer in 2020" text="Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae dolore harum ipsa magnam maxime nemo non odio recusandae! Delectus et, excepturi expedita facere magnam officiis quisquam similique ullam veniam." date="2 hours ago"/>
+
 
                 </SideContainer>
-                <SideContainer title="Favourite Pages">
-
+                <SideContainer title="Friends" needPadding>
+                <FriendsProfileIntro/>
                 </SideContainer>
+
             </div>
     </div>
     );

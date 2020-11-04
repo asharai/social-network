@@ -26,6 +26,7 @@
 .main__personInfo > h1,.main__personInfo>h5{
     margin: 0;
     color: #515365;
+    text-align: center;
 }
 
 .main__personInfo>h5{

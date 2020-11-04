@@ -1,0 +1,29 @@
+.song{
+    list-style: none;
+
+}
+.song__container{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px;
+}
+.song:hover{
+    background-color: #edf2f6;
+}
+.song__img{
+height: 40px;
+    width: 40px;
+    border-radius: 5px;
+}
+
+.song__info{
+    width: 150px;
+    text-align: left;
+}
+.song__title,.song__group{
+margin: 0;
+    padding: 0;
+    font-size: 12px;
+}

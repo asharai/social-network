@@ -4,7 +4,7 @@ const SideContainer = (props) => {
     return (
         <div className="sideContainer">
             <h4 className="sideContainer__title">{props.title}</h4>
-            <div className="sideContainer__content">
+            <div className={props.needPadding ? "sideContainer__content":''}>
                 {props.children}
             </div>
         </div>

@@ -4,6 +4,10 @@ import {connect} from 'react-redux'
 import * as postsActions from "../../store/actions/Posts";
 const AddPost = ({onGetPosts}) => {
     const [text,setText] = useState();
+    const sendPost = (post)=>{
+        onGetPosts(post);
+        setText('')
+    }
     const post = {
         text:text,
         comments:{},
@@ -16,7 +20,7 @@ const AddPost = ({onGetPosts}) => {
         <div className="addPost">
             <div className="addPost__container">
             <textarea type="text" name="" className="addPost__input" value={text} onChange={(e)=>setText(e.target.value)}></textarea>
-            <button className="addPost__btn" onClick={()=>onGetPosts(post)}>Create post</button>
+            <button className="addPost__btn" onClick={()=>sendPost(post)}>Create post</button>
             </div>
         </div>
     );

@@ -1,0 +1,19 @@
+.blogPost{
+text-align: left;
+    padding: 5px 20px;
+    border-bottom: 1px solid #e6ecf5;
+}
+.blogPost:last-child{
+    border-bottom: none;
+}
+.blogPost__title{
+    color: #515365;
+    font-weight: 300;
+    cursor:pointer;
+}
+.blogPost__title:hover{
+    color:#ff5e3a;
+}
+.blogPost > p{
+    font-size: 14px;
+}

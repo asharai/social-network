@@ -22,7 +22,7 @@ const Post = ({shares,text,idx,comments,date,onDeletePost}) => {
             time=`${(data/60).toFixed()} hours ago`;
             break;
         default:
-            time =  `More than ${(data/60/30).toFixed()} days ago`;
+            time = `More than ${(data/60/30).toFixed()} days ago`;
             break;
     };
     return (

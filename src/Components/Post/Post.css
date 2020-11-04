@@ -34,12 +34,15 @@
     color: #515365;
 }
 .post__infoDate{
-    margin: 5px;
+   margin-top:5px;
 }
 .post__feedLikes{
     display: flex;
     width: 40px;
     justify-content: space-between;
+}
+.post__feedItem{
+    cursor: pointer;
 }
 .post__feedItem:hover{
 color: #ff5e3a;
