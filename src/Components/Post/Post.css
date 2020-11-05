@@ -1,8 +1,14 @@
 .post{
     background-color: #fff;
-    padding: 20px;
+
     border-radius: 5px;
     margin-bottom: 10px;
+}
+.post__container{
+    padding: 20px;
+    border-bottom: 1px solid #e6ecf5;
+
+    margin-bottom: 0;
 }
 .post__feed{
     display: flex;

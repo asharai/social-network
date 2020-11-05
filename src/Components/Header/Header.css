@@ -4,6 +4,7 @@
     color:#fff;
     position: fixed;
     width: 100%;
+    z-index: 100;
 }
 .header__menu{
     width:100%;

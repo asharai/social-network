@@ -3,7 +3,7 @@ import './AddPost.css';
 import {connect} from 'react-redux'
 import * as postsActions from "../../store/actions/Posts";
 const AddPost = ({onGetPosts}) => {
-    const [text,setText] = useState();
+    const [text='',setText] = useState();
     const sendPost = (post)=>{
         onGetPosts(post);
         setText('')
@@ -19,8 +19,8 @@ const AddPost = ({onGetPosts}) => {
     return (
         <div className="addPost">
             <div className="addPost__container">
-            <textarea type="text" name="" className="addPost__input" value={text} onChange={(e)=>setText(e.target.value)}></textarea>
-            <button className="addPost__btn" onClick={()=>sendPost(post)}>Create post</button>
+            <textarea name="addPostText" className="addPost__input" value={text} onChange={(e)=>setText(e.target.value)}></textarea>
+            <button className="addPost__btn" onClick={()=>sendPost(post)}  disabled={!(text.length>0)}>Create post</button>
             </div>
         </div>
     );

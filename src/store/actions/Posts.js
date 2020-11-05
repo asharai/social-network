@@ -18,6 +18,13 @@ export const deletedPost = (id)=>{
         id:id
     }
 }
+export const addedComment = (id,comment) =>{
+    return {
+        type:'ADD_COMMENT',
+        id:id,
+        comment:comment
+    }
+}
 export const getPosts = ()=>{
     return dispatch =>{
         axios.get('https://social-network-956c5.firebaseio.com/posts.json')
@@ -26,6 +33,7 @@ export const getPosts = ()=>{
                 for(let key in response.data){
                     fetchedOrders.push(response.data[key])
                 }
+                console.log(fetchedOrders)
                 dispatch(setPosts(fetchedOrders))
             })
             .catch(error => {
@@ -35,7 +43,7 @@ export const getPosts = ()=>{
 }
 export const addPost = (post) =>{
     return dispatch =>{
-        axios.post('https://social-network-956c5.firebaseio.com/posts.json', post)
+        axios.post(`https://social-network-956c5.firebaseio.com/posts.json/`, post)
             .then(response => {
                 dispatch(addedPost(post))
             })
