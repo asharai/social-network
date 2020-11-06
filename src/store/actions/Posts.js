@@ -30,9 +30,23 @@ export const getPosts = ()=>{
         axios.get('https://social-network-956c5.firebaseio.com/posts.json')
             .then(response => {
                 let fetchedOrders = [];
+                let fetchedComments=[];
                 for(let key in response.data){
-                    fetchedOrders.push(response.data[key])
+                    for(let k in response.data[key].comments){
+                    fetchedComments.push(response.data[key].comments[k])
+                        console.log(fetchedComments)
+                    }
+
+                    fetchedOrders.push({...response.data[key]})
+
                 }
+                fetchedOrders.forEach(item=>{
+                    let arr = []
+                    for(let keys in item.comments){
+                        arr.push(item.comments[keys]);
+                    }
+                    item.comments = arr;
+                })
                 console.log(fetchedOrders)
                 dispatch(setPosts(fetchedOrders))
             })
@@ -42,8 +56,9 @@ export const getPosts = ()=>{
     }
 }
 export const addPost = (post) =>{
+let idx = post.id;
     return dispatch =>{
-        axios.post(`https://social-network-956c5.firebaseio.com/posts.json/`, post)
+        axios.put(`https://social-network-956c5.firebaseio.com/posts/${idx}.json`, {...post})
             .then(response => {
                 dispatch(addedPost(post))
             })
@@ -52,9 +67,22 @@ export const addPost = (post) =>{
             })
     }
 }
+export const addComment = (id,comment) =>{
+    return dispatch =>{
+        axios.post(`https://social-network-956c5.firebaseio.com/posts/${id}/comments.json`, {...comment})
+            .then(response => {
+
+                dispatch(addedComment(id,comment))
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+}
 export const deletePost = (id)=>{
     return dispatch =>{
-        axios.delete('https://social-network-956c5.firebaseio.com/posts.json',{data:{id:id}})
+        axios.delete(`https://social-network-956c5.firebaseio.com/posts/${id}.json`)
             .then(res=>{
             dispatch(deletedPost(id))
         })

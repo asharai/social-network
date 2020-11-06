@@ -1,17 +1,31 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Comment from "./Comment/Comment";
 import './Comments.css'
 import AddComment from "../AddComent/Add Comment";
-const Comments = ({open}) => {
+import {connect} from "react-redux";
+const Comments = ({open,idx,posts}) => {
+
+
+   const commentBlock =  posts[posts?.findIndex(item=>item.id==idx)].comments.map(item=>{
+       console.log(item)
+       return  <Comment text={item.text} name={item.profile} time={item.date} idx={item.id}/>
+
+   })
+
     return (
     <div className={open ? 'comments open' : 'comments'}>
          <ul className="comments__list" >
-            <Comment text="awesome" name="Julian Rop" time={Date.now()} idx={1}/>
-            <Comment text="hello world it's very nice" name="Julian Rop" time={Date.now()} idx={1}/>
+             {commentBlock}
         </ul>
-        <AddComment/>
+        <AddComment idx={idx}/>
     </div>
     );
 };
+const mapStateToProps = state => {
+    return {
+        posts:state.posts
 
-export default Comments;
+    };
+}
+
+export default connect(mapStateToProps,null)(Comments)

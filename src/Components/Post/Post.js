@@ -6,27 +6,11 @@ import MessageIcon from '@material-ui/icons/Message';
 import ReplyIcon from '@material-ui/icons/Reply';
 import * as postsActions from '../../store/actions/Posts';
 import {connect} from 'react-redux';
+import {getPostTime} from "../../store/reducers/Posts";
 import Comments from "../Comments/Comments";
-const Post = ({shares,text,idx,comments,date,onDeletePost}) => {
+const Post = ({shares,text,idx,commentsCount,date,onDeletePost}) => {
     let [openComments = false,setOpenComments] = useState();
-    let data =((Date.now()- new Date(date)) / (60*1000)).toFixed();
-
-    let time = ``;
-
-    switch(true){
-        case data < 1:
-            time=`Less than minute ago`;
-            break;
-        case data < 60:
-            time = `${data} minutes ago`;
-            break;
-        case data < 1440:
-            time=`${(data/60).toFixed()} hours ago`;
-            break;
-        default:
-            time = `More than ${(data/60/30).toFixed()} days ago`;
-            break;
-    };
+    let time = getPostTime(date);
     return (
 
         <article className="post" key={idx}>
@@ -56,13 +40,13 @@ const Post = ({shares,text,idx,comments,date,onDeletePost}) => {
             <div className="post__feed ">
                 <a  className="post__feedLikes post__feedItem"> <FavoriteBorderIcon/> <span>8</span></a>
                 <div className="post__feedShare">
-                    <a className="post___feedShare__count post__feedItem" onClick={()=>setOpenComments(!openComments)}> <MessageIcon/> <span>{comments}</span> </a>
+                    <a className="post___feedShare__count post__feedItem" onClick={()=>setOpenComments(!openComments)}> <MessageIcon/> <span>{commentsCount}</span> </a>
                     <a className="post___feedShare__count post__feedItem" > <ReplyIcon/>    <span>{shares}</span> </a>
                 </div>
 
             </div>
             </div>
-            <Comments open={openComments}/>
+            <Comments open={openComments}  idx={idx}/>
         </article>
     );
 };

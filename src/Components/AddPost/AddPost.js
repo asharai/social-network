@@ -10,11 +10,11 @@ const AddPost = ({onGetPosts}) => {
     }
     const post = {
         text:text,
-        comments:{},
-        likes:0,
+              likes:0,
         shares:0,
-        id:Date.now() + Math.random() * 10,
-        date:Date.now()
+        id:Date.now(),
+        date:Date.now(),
+        comments:[]
     }
     return (
         <div className="addPost">

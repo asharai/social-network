@@ -11,12 +11,13 @@ const Posts = ({onGetPosts,posts,loading}) => {
 
     const createPost = () =>{
         return posts.sort((a,b)=>b.date-a.date).map(item=>{
-            return <Post  comments={18} text={item.text}  idx={item.id} shares={item.shares} date={item.date} />
+
+            return <Post commentsCount={item.comments.length}   text={item.text}  idx={item.id} shares={item.shares} date={item.date} />
         })
     }
 
     const post = createPost();
-console.log(loading)
+
     return (
         <div>
             <AddPost/>
