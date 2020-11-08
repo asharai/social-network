@@ -8,7 +8,7 @@ import * as postsActions from '../../store/actions/Posts';
 import {connect} from 'react-redux';
 import {getPostTime} from "../../store/reducers/Posts";
 import Comments from "../Comments/Comments";
-const Post = ({shares,text,idx,commentsCount,date,onDeletePost}) => {
+const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes}) => {
     let [openComments = false,setOpenComments] = useState();
     let time = getPostTime(date);
     return (
@@ -38,7 +38,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost}) => {
             </div>
             <p className="post__text">{text}</p>
             <div className="post__feed ">
-                <a  className="post__feedLikes post__feedItem"> <FavoriteBorderIcon/> <span>8</span></a>
+                <a  className="post__feedLikes post__feedItem"> <FavoriteBorderIcon/> <span>{likes}</span></a>
                 <div className="post__feedShare">
                     <a className="post___feedShare__count post__feedItem" onClick={()=>setOpenComments(!openComments)}> <MessageIcon/> <span>{commentsCount}</span> </a>
                     <a className="post___feedShare__count post__feedItem" > <ReplyIcon/>    <span>{shares}</span> </a>

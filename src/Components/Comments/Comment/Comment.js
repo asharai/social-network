@@ -3,7 +3,7 @@ import './Comment.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import {getPostTime} from "../../../store/reducers/Posts";
 
-const Comment = ({idx,text,time,name}) => {
+const Comment = ({idx,text,time,name,likes}) => {
     let date = getPostTime(time);
     return (
         <li  className="comment">
@@ -15,13 +15,11 @@ const Comment = ({idx,text,time,name}) => {
                             <h4 className="comment__infoName">{name}</h4>
                             <h6 className="comment__infoDate">{date}</h6>
                         </hgroup>
-
                     </div>
-
                 </div>
                 <p className="comment__text">{text}</p>
                 <div className="comment__feed ">
-                    <a  className="comment__feedLikes post__feedItem"> <FavoriteBorderIcon/> <span>8</span></a>
+                    <a  className="comment__feedLikes post__feedItem"> <FavoriteBorderIcon/> <span>{likes}</span></a>
                 </div>
             </article>
         </li>
