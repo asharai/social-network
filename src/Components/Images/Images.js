@@ -25,27 +25,42 @@ const Images = () => {
         setIdimg(id)
     }
 
-
     const img = imgs.map(item=>{
         return (
-            <li key={item.id}><img src={item.img} onClick={()=>openImg(item.id)} alt=""/></li>
+            <li key={item.id}><img src={item.img} onClick={()=>openImg(item.id-1)} alt=""/></li>
         )
     })
-
+    const nextImg = ()=>{
+        if(idImg+1>=imgs[imgs.length-1].id){
+            setIdimg(0)
+        }
+     else{
+            setIdimg(idImg+1)
+        }
+    }
+    const prevImg = ()=>{
+        if(idImg==0){
+            setIdimg(imgs[imgs.length-1].id-1)
+        }
+        else{
+            setIdimg(idImg-1)
+        }
+    }
+console.log(idImg)
     return (
         <div>
             <ul className="images__listImg">
                 {img}
                 <Modal open={openModal}  >
                     <ul className="images__modal">
-                        <li><span className="images__modalDescription"><ArrowLeftIcon  style={{ fontSize: 80 }} onClick={()=>setIdimg(idImg-1)}/> </span></li>
+                        <li><span className="images__modalDescription"><ArrowLeftIcon  style={{ fontSize: 80 }} onClick={()=>prevImg()}/> </span></li>
                         <li>
                             <div className="images__modalContent">
                           <CloseIcon className="images__modalDescription" onClick={()=>setOpenModal(false)}/>
-                            <img src={imgs[idImg].img} onClick={()=>setIdimg(idImg+1)} alt=""/>
+                            <img src={imgs[idImg].img} onClick={()=>nextImg()} alt=""/>
                             <p >{imgs[idImg].id} of 9</p>
                         </div></li>
-                        <li><span className="images__modalDescription"><ArrowRightIcon  style={{ fontSize: 80 }} onClick={()=>setIdimg(idImg+1)} /> </span></li>
+                        <li><span className="images__modalDescription"><ArrowRightIcon  style={{ fontSize: 80 }} onClick={()=>nextImg()} /> </span></li>
                     </ul>
                 </Modal>
             </ul>

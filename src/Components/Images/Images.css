@@ -10,7 +10,7 @@
     width: 85px;
     height: 85px;
     border-radius: 5px;
-    cursor:pointer;
+    cursor:zoom-in;
 }
 .images__modal{
     z-index: 99999;
