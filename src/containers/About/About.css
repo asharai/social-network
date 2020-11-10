@@ -1,0 +1,12 @@
+.about{
+    width: 70%;
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+    grid-template-rows: 1fr;
+    grid-gap: 50px;
+    font-size: 14px;
+}
+.about__container{
+    display: grid;
+
+}

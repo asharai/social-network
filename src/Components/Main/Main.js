@@ -18,7 +18,7 @@ const Main = () => {
                 </li>
                 <li><NavLink to="/photos" className="main__menuItem" href="">Photos</NavLink></li>
                 <li><NavLink to="/videos" className="main__menuItem" href="">Videos</NavLink></li>
-                <li><a className="main__menuItem" href=""><MoreHorizIcon/></a></li>
+                <li><span className="main__menuItem" ><MoreHorizIcon/></span></li>
             </ul>
         </div>
     );
