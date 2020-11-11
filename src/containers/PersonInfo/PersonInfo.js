@@ -4,6 +4,7 @@ import './PersonInfo.css';
 import Main from "../../Components/Main/Main";
 import {BrowserRouter as Router,Switch,Route,useRouteMatch} from 'react-router-dom';
 import Content from "../Content/Content";
+import FullFriends from '../../Components/FullFriends/FullFriends'
 import About from "../About/About";
 const PersonInfo = () => {
     let { path, url } = useRouteMatch();
@@ -18,6 +19,9 @@ const PersonInfo = () => {
                     </Route>
                     <Route   path={`${path}about`} >
                         <About/>
+                    </Route>
+                    <Route   path={`${path}friends`} >
+                        <FullFriends/>
                     </Route>
                 </Switch>
         </div>

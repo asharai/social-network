@@ -5,6 +5,7 @@
 .personalInfo__item{
     list-style: none;
     display: flex;
+    margin-bottom: 10px;
 
 }
 .personalInfo__item>h5{
@@ -17,4 +18,11 @@
     text-align: left;
     margin-top: 0;
 
+}
+.profileIntro__itemList{
+    list-style: none;
+
+}
+.profileIntro__itemList>h4{
+    margin-bottom: 15px;
 }

@@ -1,5 +1,8 @@
 import React from 'react';
 import './PersonalInfo.css'
+import FacebookIcon from "@material-ui/icons/Facebook";
+import TwitterIcon from "@material-ui/icons/Twitter";
+import GitHubIcon from "@material-ui/icons/GitHub";
 const PersonalInfo = () => {
     return (
         <ul className="personalInfo">
@@ -47,7 +50,14 @@ const PersonalInfo = () => {
                 <h5>Political Incline:</h5>
                 <p>Democrat</p>
             </li>
-
+            <li className="profileIntro__itemList">
+                <h4 >Other Social Networks:</h4>
+                <ul className="profileIntro__linksList">
+                    <li className="profileIntro__linksItem profileIntro__linksItemFacebook"><a href=""><FacebookIcon/></a></li>
+                    <li className="profileIntro__linksItem profileIntro__linksItemTwitter"><a href=""> <TwitterIcon/></a></li>
+                    <li className="profileIntro__linksItem profileIntro__linksItemGithub"><a href=""><GitHubIcon/></a></li>
+                </ul>
+            </li>
         </ul>
     );
 };

@@ -24,7 +24,9 @@ const Images = () => {
         setOpenModal(true);
         setIdimg(id)
     }
-
+    const handleClose = ()=>{
+        setOpenModal(false);
+    }
     const img = imgs.map(item=>{
         return (
             <li key={item.id}><img src={item.img} onClick={()=>openImg(item.id-1)} alt=""/></li>
@@ -51,7 +53,7 @@ console.log(idImg)
         <div>
             <ul className="images__listImg">
                 {img}
-                <Modal open={openModal}  >
+                <Modal open={openModal} onClose={handleClose}  >
                     <ul className="images__modal">
                         <li><span className="images__modalDescription"><ArrowLeftIcon  style={{ fontSize: 80 }} onClick={()=>prevImg()}/> </span></li>
                         <li>

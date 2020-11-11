@@ -13,7 +13,7 @@ const Main = () => {
                 <li><NavLink to="/friends" className="main__menuItem" href="">Friends</NavLink></li>
                 <li className="main__personInfo">
                     <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png" className="main__personImg" alt=""/>
-                    <h1>John Doe</h1>
+                    <h1>James Spiegel</h1>
                     <h5>San Francisco,CA</h5>
                 </li>
                 <li><NavLink to="/photos" className="main__menuItem" href="">Photos</NavLink></li>

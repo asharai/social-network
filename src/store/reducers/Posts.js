@@ -33,13 +33,13 @@ const reducer = (state=initialState, action)=>{
                 posts:state.posts.concat(action.post)
             };
         case 'DELETE_POST':
-            let idx = state.posts.findIndex(item=>item.id==action.id)
+            let idx = state.posts.findIndex(item=>item.id===action.id)
             return{
                 ...state,
                 posts: state.posts.slice(0,idx).concat(state.posts.slice(idx+1))
             }
         case 'ADD_COMMENT':
-            let id = state.posts.findIndex(item=>item.id==action.id);
+            let id = state.posts.findIndex(item=>item.id===action.id);
             let newPosts = [...state.posts];
             newPosts[id].comments = newPosts[id].comments.concat( action.comment);
             return{

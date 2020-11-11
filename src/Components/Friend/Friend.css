@@ -1,0 +1,34 @@
+.friend{
+    position: relative;
+    width: 100%;
+    height: 447px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+}
+.friend__logo{
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    top:80px;
+}
+.friend__header{
+    width: 100%;
+    height: 113px;
+}
+.friend__list{
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 0;
+    list-style: none;
+    justify-content: space-between;
+}
+.friend__name >h6{
+    text-align: center;
+    font-size: 13px;
+    font-weight: normal;
+}

@@ -10,3 +10,8 @@
     display: grid;
 
 }
+@media all and (max-width: 1168px) {
+    .about{
+        grid-template-columns: 1fr;
+    }
+}
