@@ -1,8 +1,30 @@
 .fullFriends{
     width: 70%;
+
+
+}
+.fullFriends__header{
+    height: 100px;
+    background: #fff;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    box-sizing: border-box;
+    align-items: center;
+}
+.fullFriends__header>input{
+    height: 30px;
+    width: 220px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    border-radius: 2px;
+    outline: none;
+    border:1px solid #888da8
+}
+.fullFriends__container{
     display: grid;
-    grid-gap: 30px;
+    grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-
-
+    grid-template-rows: 1fr 1fr;
 }
