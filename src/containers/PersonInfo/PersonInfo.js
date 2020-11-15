@@ -6,6 +6,7 @@ import {BrowserRouter as Router,Switch,Route,useRouteMatch} from 'react-router-d
 import Content from "../Content/Content";
 import FullFriends from '../../Components/FullFriends/FullFriends'
 import About from "../About/About";
+import Photos from "../../Components/Photos/Photos";
 const PersonInfo = () => {
     let { path, url } = useRouteMatch();
     return (
@@ -22,6 +23,9 @@ const PersonInfo = () => {
                     </Route>
                     <Route   path={`${path}friends`} >
                         <FullFriends/>
+                    </Route>
+                    <Route   path={`${path}photos`} >
+                        <Photos/>
                     </Route>
                 </Switch>
         </div>

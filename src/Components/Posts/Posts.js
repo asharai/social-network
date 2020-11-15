@@ -10,6 +10,7 @@ const Posts = ({onGetPosts,posts,loading}) => {
     },[])
 
     const createPost = () =>{
+
         return posts.sort((a,b)=>b.date-a.date).map(item=>{
 
             return <Post commentsCount={item.comments.length}   text={item.text} likes={item.likes}  idx={item.id} shares={item.shares} date={item.date} />
@@ -27,7 +28,7 @@ const Posts = ({onGetPosts,posts,loading}) => {
 };
 const mapStateToProps = state => {
     return {
-        posts: state.posts
+        posts: state.posts.posts
 
 
     };

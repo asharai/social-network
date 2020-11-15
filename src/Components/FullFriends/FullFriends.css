@@ -1,6 +1,7 @@
 .fullFriends{
     width: 70%;
-
+    padding-bottom: 50px;
+    min-height: 100vh;
 
 }
 .fullFriends__header{
@@ -26,5 +27,5 @@
     display: grid;
     grid-gap: 10px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+
 }

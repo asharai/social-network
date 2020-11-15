@@ -92,3 +92,23 @@
 
 
 }
+.friend__icons{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.friend__icon{
+    margin-left: 10px;
+    padding:15px;
+    color: white;
+    display: flex;
+
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    background-color:#38a9ff;
+    cursor: pointer;
+}
+

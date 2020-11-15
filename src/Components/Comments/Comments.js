@@ -23,7 +23,7 @@ const Comments = ({open,idx,posts}) => {
 };
 const mapStateToProps = state => {
     return {
-        posts:state.posts
+        posts:state.posts.posts
 
     };
 }
