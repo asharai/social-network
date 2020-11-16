@@ -47,3 +47,7 @@
 .images__modalArrow{
     font-size: 26px;
 }
+.modal{
+    width: 70%;
+    margin: 10px auto;
+}
