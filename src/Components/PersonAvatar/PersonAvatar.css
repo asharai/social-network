@@ -1,0 +1,12 @@
+.personAvatar{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.personAvatar__name{
+    margin: 0;
+    color: #515365;
+}
+.personAvatar__date{
+    margin-top:5px;
+}

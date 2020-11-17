@@ -15,11 +15,23 @@ const initialState={
 const reducer = (state=initialState,action)=>{
     switch (action.type) {
         case 'NEXT_IMG':
+            if(state.idImg+1>state.images[state.images.length-1].id){
+                return {
+                    ...state,
+                    idImg: 0
+                };
+            }
             return {
                 ...state,
                 idImg: state.idImg+1
             };
         case 'PREV_IMG':
+            if(state.idImg==0){
+                return{
+                    ...state,
+                    idImg: state.images[state.images.length-1].id
+                }
+            }
             return {
                 ...state,
                 idImg: state.idImg-1

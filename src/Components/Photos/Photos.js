@@ -7,6 +7,7 @@ import * as imagesActions from '../../store/actions/Images';
 import {makeStyles} from "@material-ui/core/styles";
 import './Photos.css';
 import Modal from "@material-ui/core/Modal";
+import PersonAvatar from "../PersonAvatar/PersonAvatar";
 
 const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
     const [open=true,setOpen]=useState();
@@ -51,14 +52,19 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
                 <div className="modal">
                     <div className="modal__mainImage">
                         <img  src={images[idImg].img} alt=""/>
-
+                        <article className="modal__post">
+                            <PersonAvatar/>
+                            <p>Here’s a photo from last month’s photoshoot. We really had a great time and got a batch of incredible shots for the new catalog.</p>
+                        </article>
                     </div>
 
                 <div className="modal__list">
                     <ArrowLeftIcon  onClick={()=>onPrevImg()} className={classes.arrows}/>
                     <ul>
                         {images.map(item=>{
-                            return(<li key={item.id}> <img className="modal__listImg" src={item.img}/> </li>)
+                            return(<li key={item.id} className={idImg==item.id? "modal__listItem modal__listItemActive":"modal__listItem"}  onClick={()=>onSetIdImg(item.id)}>
+                                <img className="modal__listImg" src={item.img}/>
+                            </li>)
                         })}
                     </ul>
                     <ArrowRightIcon onClick={()=>onNextImg()} className={classes.arrows}/>

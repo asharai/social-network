@@ -62,6 +62,24 @@
 .modal__listImg{
     width: 100px;
     height: 100px;
+
+
+}
+.modal__listItem::after{
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100px;
+    height: 100px;
+    background: rgba(0, 0, 0, 0.6);
+}
+.modal__listItemActive::after{
+    background: rgba(0, 0, 0, 0.0);
+}
+.modal__listItem{
+    position: relative;
+    cursor: pointer;
 }
 
 .modal{
@@ -71,13 +89,14 @@ outline: none;
 .modal__mainImage{
     display: flex;
     justify-content: center;
+    margin-bottom: 70px;
 }
 .modal__mainImage>img{
-    width: 800px;
+
     height: 532px;
 
-    object-fit: contain;
 }
+
 .modal__list > ul {
     list-style: none;
     padding: 0;
@@ -89,4 +108,8 @@ outline: none;
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.modal__post{
+    width: 350px;
+    background-color: #fff;
 }
