@@ -1,6 +1,8 @@
 import React from 'react';
 import './Header.css';
 import {Link} from 'react-router-dom'
+
+import PersonAvatar from "../PersonAvatar/PersonAvatar";
 const Header = () => {
     return (
         <header className="header">
@@ -16,11 +18,7 @@ const Header = () => {
             <i>1</i>
         </div>
             <div className="header__profileInfo">
-                <img src="" alt=""/>
-                <hgroup>
-                    <h3>James Bond</h3>
-                    <h5>Agent 007</h5>
-                </hgroup>
+             <PersonAvatar time={"Space Cowboy"}/>
             </div>
         </nav>
         </header>

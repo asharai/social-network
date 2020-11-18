@@ -8,6 +8,7 @@ import {makeStyles} from "@material-ui/core/styles";
 import './Photos.css';
 import Modal from "@material-ui/core/Modal";
 import PersonAvatar from "../PersonAvatar/PersonAvatar";
+import Post from "../Post/Post";
 
 const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
     const [open=true,setOpen]=useState();
@@ -27,12 +28,24 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
         }
 
     });
+    const mainImage = images.map(item=>{
+        return(
+            <div className="modal__mainImage">
+                <img  src={item.img} alt=""/>
+                <article className="modal__post">
+
+
+                <Post imageComment={true} commentsCount={item.comments.length}   text={item.text} likes={item.likes}  idx={item.id} shares={item.shares} date={item.date} />
+                </article>
+            </div>
+        )
+    })
+    const openModal =id=>{
+        onSetIdImg(id);
+        setOpen(true);
+    }
     const classes = useStyles();
     const imgs= images.map(item=>{
-        const openModal =id=>{
-            onSetIdImg(id);
-            setOpen(true);
-        }
         return(
             <li key={item.id}><div className="photos__overlay">
                 <div onClick={()=>openModal(item.id)} className="photos__description">
@@ -50,14 +63,8 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
             {imgs}
             <Modal open={open} onClose={()=>setOpen(false)} className={classes.root} disableAutoFocus={true}>
                 <div className="modal">
-                    <div className="modal__mainImage">
-                        <img  src={images[idImg].img} alt=""/>
-                        <article className="modal__post">
-                            <PersonAvatar/>
-                            <p>Here’s a photo from last month’s photoshoot. We really had a great time and got a batch of incredible shots for the new catalog.</p>
-                        </article>
-                    </div>
 
+                    {mainImage[idImg]}
                 <div className="modal__list">
                     <ArrowLeftIcon  onClick={()=>onPrevImg()} className={classes.arrows}/>
                     <ul>

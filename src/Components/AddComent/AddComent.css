@@ -23,6 +23,7 @@
 .addComment__img{
     width: 40px;
     height: 40px;
+    margin-right: 10px;
 }
 .addComment__text{
     width:90%;

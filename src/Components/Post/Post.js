@@ -8,7 +8,7 @@ import * as postsActions from '../../store/actions/Posts';
 import {connect} from 'react-redux';
 import {getPostTime} from "../../store/reducers/Posts";
 import Comments from "../Comments/Comments";
-const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes}) => {
+const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageComment}) => {
     let [openComments = false,setOpenComments] = useState();
     let time = getPostTime(date);
     return (
@@ -46,7 +46,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes}) => {
 
             </div>
             </div>
-            <Comments open={openComments}  idx={idx}/>
+            <Comments open={openComments} imageComment={imageComment} idx={idx}/>
         </article>
     );
 };

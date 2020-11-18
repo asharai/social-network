@@ -85,6 +85,8 @@
 .modal{
 outline: none;
     margin-top: 80px;
+    color: #9a9fbf;
+    font-size: 15px;
 }
 .modal__mainImage{
     display: flex;
@@ -110,6 +112,10 @@ outline: none;
     align-items: center;
 }
 .modal__post{
-    width: 350px;
+    width: 400px;
+    height: 532px;
+    padding: 20px;
     background-color: #fff;
+    box-sizing: border-box;
+    overflow-y: auto;
 }

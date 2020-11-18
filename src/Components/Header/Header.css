@@ -15,13 +15,21 @@
     align-items: center;
 }
 
-.header__profileInfo> hgroup > h3,.header__profileInfo > hgroup > h5,hgroup{
-    margin: 0;
-    padding: 0;
-}
+
+
 .header__profileInfo{
     display: flex;
     flex-grow: 0.2;
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+.header__profileInfo>div>img{
+    height: 40px;
+    width: 40px;
+}
+.header__profileInfo>div>hgroup>h4,.header__profileInfo>div>hgroup>h6{
+    color: white;
 }
 .header__menuLogo{
     flex-basis: 70px;

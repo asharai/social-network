@@ -14,3 +14,10 @@ export const  prevImg = ()=>{
         type:'PREV_IMG',
     }
 }
+export const addCommentToImg=(id,comment)=>{
+    return{
+        type:'ADD_COMMENT_IMG',
+        id:id,
+        comment:comment
+    }
+}

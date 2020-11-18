@@ -1,9 +1,10 @@
 import React, {useState} from 'react';
 import './AddComent.css'
 import * as postsActions from "../../store/actions/Posts";
+import * as imageAcitons from '../../store/actions/Images'
 import {connect} from "react-redux";
 
-const AddComment = ({idx,onAddComment}) => {
+const AddComment = ({idx,onAddComment,onAddCommentToImg,imageComment}) => {
     const [text,setText]=useState();
     const comment = {
         text:text,
@@ -14,9 +15,15 @@ const AddComment = ({idx,onAddComment}) => {
         img:'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
     }
     const addCommentToPost = (idx,comment)=>{
-        onAddComment(idx,comment);
+        if(imageComment){
+            onAddCommentToImg(idx,comment)
+        }
+        else{
+            onAddComment(idx,comment);
+        }
         setText('');
     }
+
     return (
         <div className="addComment">
            <div className="addComment__container">
@@ -32,7 +39,8 @@ const AddComment = ({idx,onAddComment}) => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-        onAddComment: (idx,comment) => dispatch(postsActions.addComment(idx,comment))
+        onAddComment: (idx,comment) => dispatch(postsActions.addComment(idx,comment)),
+        onAddCommentToImg: (idx,comment) => dispatch(imageAcitons.addCommentToImg(idx,comment)),
     }
 }
 export default connect(null,mapDispatchToProps)(AddComment);
