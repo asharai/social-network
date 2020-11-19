@@ -15,7 +15,7 @@ function App() {
            <Header/>
            <Sidebar/>
            <Switch>
-               <Route  path="/">
+               <Route  path="/social-network">
                    <PersonInfo/>
                </Route>
            </Switch>

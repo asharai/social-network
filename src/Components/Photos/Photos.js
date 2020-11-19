@@ -7,11 +7,11 @@ import * as imagesActions from '../../store/actions/Images';
 import {makeStyles} from "@material-ui/core/styles";
 import './Photos.css';
 import Modal from "@material-ui/core/Modal";
-import PersonAvatar from "../PersonAvatar/PersonAvatar";
+
 import Post from "../Post/Post";
 
 const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
-    const [open=true,setOpen]=useState();
+    const [open=false,setOpen]=useState();
     const useStyles = makeStyles({
         root: {
             outline:'none',
@@ -33,8 +33,6 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
             <div className="modal__mainImage">
                 <img  src={item.img} alt=""/>
                 <article className="modal__post">
-
-
                 <Post imageComment={true} commentsCount={item.comments.length}   text={item.text} likes={item.likes}  idx={item.id} shares={item.shares} date={item.date} />
                 </article>
             </div>
@@ -50,10 +48,10 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
             <li key={item.id}><div className="photos__overlay">
                 <div onClick={()=>openModal(item.id)} className="photos__description">
                     <hgroup>
-                        <h3>Header Photos</h3>
+                        <h3>{item.headerPhoto}</h3>
                         <h6>1 Week ago</h6>
                     </hgroup>
-                    <span className="photos__likesCount">15  <FavoriteBorderIcon/></span>
+                    <span className="photos__likesCount">{item.likes}  <FavoriteBorderIcon/></span>
                 </div>
             </div><img className="photos__img" src={item.img} alt=""/></li>
         )

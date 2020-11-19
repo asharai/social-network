@@ -38,6 +38,7 @@
     height: 40px;
     width: 40px;
     margin-right: 10px;
+    border-radius: 50%;
 }
 .comment__feedShare{
     width: 100px;

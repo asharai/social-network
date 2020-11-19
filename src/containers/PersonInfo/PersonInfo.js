@@ -9,6 +9,7 @@ import About from "../About/About";
 import Photos from "../../Components/Photos/Photos";
 const PersonInfo = () => {
     let { path, url } = useRouteMatch();
+
     return (
 
         <div className="personInfo">
@@ -18,13 +19,13 @@ const PersonInfo = () => {
                     <Route  exact path={path}>
                         <Content/>
                     </Route>
-                    <Route   path={`${path}about`} >
+                    <Route   path={`${path}/about`} >
                         <About/>
                     </Route>
-                    <Route   path={`${path}friends`} >
+                    <Route   path={`${path}/friends`} >
                         <FullFriends/>
                     </Route>
-                    <Route   path={`${path}photos`} >
+                    <Route   path={`${path}/photos`} >
                         <Photos/>
                     </Route>
                 </Switch>
