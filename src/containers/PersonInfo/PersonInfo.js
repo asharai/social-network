@@ -7,6 +7,7 @@ import Content from "../Content/Content";
 import FullFriends from '../../Components/FullFriends/FullFriends'
 import About from "../About/About";
 import Photos from "../../Components/Photos/Photos";
+import Videos from "../../Components/Videos/Videos";
 const PersonInfo = () => {
     let { path, url } = useRouteMatch();
 
@@ -27,6 +28,9 @@ const PersonInfo = () => {
                     </Route>
                     <Route   path={`${path}/photos`} >
                         <Photos/>
+                    </Route>
+                    <Route   path={`${path}/videos`} >
+                        <Videos/>
                     </Route>
                 </Switch>
         </div>

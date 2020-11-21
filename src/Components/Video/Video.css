@@ -1,0 +1,21 @@
+.video{
+    width: 293px;
+    height: 195px;
+    display: flex;
+    flex-direction: column;
+
+
+}
+.video__img{
+    height: 70%;
+}
+.video__description{
+    background-color: #fff;
+    padding:20px;
+    box-sizing: border-box;
+    text-align: left;
+}
+.video__duration{
+    margin-top: 5px;
+    margin-bottom: 0;
+}
