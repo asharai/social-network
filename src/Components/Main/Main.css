@@ -21,7 +21,7 @@
 }
 .main__personInfo{
     position: relative;
-
+    min-width: 200px;
 }
 
 .main__personInfo > h1,.main__personInfo>h5{
@@ -41,7 +41,7 @@
     position: absolute;
     border-radius: 50%;
     top:-105px;
-    left: 30px;
+    left: 50px;
     border: 5px solid #fff;
 }
 .main__menuItem{

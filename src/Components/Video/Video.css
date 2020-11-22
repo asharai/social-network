@@ -1,13 +1,20 @@
 .video{
-    width: 293px;
-    height: 195px;
+    width: 100%;
+    height: 297px;
     display: flex;
     flex-direction: column;
 
 
 }
-.video__img{
+.video__content{
+    width: 100%;
     height: 70%;
+    position: relative;
+}
+.video__img{
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
 }
 .video__description{
     background-color: #fff;
@@ -18,4 +25,29 @@
 .video__duration{
     margin-top: 5px;
     margin-bottom: 0;
+}
+.video__overlay{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #333;
+    opacity: 0;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    transition: .2s ease-in-out;
+    border-radius: 5px;
+}
+.video__overlay:hover{
+    opacity: 0.8;
+
+}
+.modal__videos{
+    display: flex;
+    flex-direction: column;
+
+    align-items: flex-end;
 }
