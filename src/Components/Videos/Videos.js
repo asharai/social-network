@@ -41,7 +41,7 @@ const Videos = ({videos,idVideo,modalVideo,onChangeModal}) => {
             <Modal open={modalVideo} className={classes.root} onClose={()=>onChangeModal()}>
                 <div className="modal__videos">
                     <CloseIcon className={classes.closeIcon} onClick={()=>onChangeModal()}/>
-                     <iframe width="560" height="315" src={videos[idVideo].url} frameBorder="0"
+                     <iframe width="660" height="415" src={videos[idVideo].url} frameBorder="0"
                              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                              allowFullScreen></iframe>
                 </div>

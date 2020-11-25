@@ -2,6 +2,7 @@
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    position: relative;
 }
 .personAvatar__name{
     margin: 0;
@@ -10,4 +11,16 @@
 .personAvatar__date{
     margin-top:5px;
     font-size: 12px;
+}
+.post__infoPersonImg{
+    position: relative;
+}
+.post__status{
+    position: absolute;
+    top:0;
+    left:5px;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: #32e4cd;
 }
