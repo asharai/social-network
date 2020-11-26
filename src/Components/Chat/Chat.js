@@ -2,14 +2,32 @@ import React from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 import './Chat.css';
 import {connect} from 'react-redux';
-const Chat = ({chat,open,id,friends}) => {
-    const messages = chat[id].messages.map(item=>{
-        console.log(item)
+import * as chatActions from '../../store/actions/Chat'
+const Chat = ({chat,open,id,friends,onCloseChat}) => {
+    const idx = (id,arr)=>{
+        return arr.findIndex(item=>{
+            return item.id == id
+        })
+    }
+
+
+    const messages = chat[idx(id,chat)].messages.map((item,i)=>{
+
         return (
             <li className={item.profile==160? 'chat_personMessage chat__message' : 'chat__message'}>
 
-                <img src={item.profile==160? 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png' :friends[item.profile].avatarImg} className="chat__messageImg" alt=""/>
-                <p className="chat__messageText">{item.text}</p>
+                {
+                 i>0 &&  chat[idx(id,chat)].messages[i-1].profile==item.profile ?
+                     <span className="chat__messageImg"></span> :
+                     <img src={item.profile==160? 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png' : friends[idx(item.profile,friends)].avatarImg} className="chat__messageImg" alt=""/>
+                }
+                <article>
+                    <p className="chat__messageText">{item.text}</p>
+                    {i==chat[idx(id,chat)].messages.length || chat[idx(id,chat)].messages[i+1]?.profile!=item.profile ?
+                    <span className="chat__messageTime">Yesterday at 8 p.m.</span>  : null }
+
+                </article>
+
             </li>
         )
     })
@@ -19,7 +37,8 @@ const Chat = ({chat,open,id,friends}) => {
                 <span className="chat__headerStatus"></span>
                 <h4 className="chat__headerTitle">Chat</h4>
             </div>
-            <CloseIcon/>
+            <CloseIcon onClick={()=>onCloseChat()}/>
+
         </header>
         <div className="chat__body">
             {messages}
@@ -37,4 +56,9 @@ const mapStateToProps = state =>{
         friends:state.friends.friends
     }
 }
-export default connect(mapStateToProps,null)(Chat);
+const mapDispatchToProps=dispatch=>{
+  return  {
+        onCloseChat:()=>dispatch(chatActions.closeChat())
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(Chat);

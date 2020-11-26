@@ -1,11 +1,12 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import MenuIcon from '@material-ui/icons/Menu';
+import * as chatActions from '../../../store/actions/Chat'
 import './ChatMenu.css';
-const ChatMenu = ({chat}) => {
+const ChatMenu = ({chat,onOpenChat}) => {
     let chatFriends = chat.map((item)=>{
         return (
-            <li className="chatMenu__item">
+            <li key={item.id} className="chatMenu__item" onClick={()=>onOpenChat(item.id)}>
                 <img src={item.avatarImg} alt="" className="chatMenu__img"/>
                 <span className="chatMenu__status"></span>
             </li>
@@ -26,4 +27,9 @@ const mapStateToProps = state =>{
         chat:state.chat.chat
     }
 }
-export default connect(mapStateToProps,null)(ChatMenu);
+const mapDispatchToProps = dispatch =>{
+    return{
+        onOpenChat:(id)=>dispatch(chatActions.openChat(id))
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ChatMenu);
