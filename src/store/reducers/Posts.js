@@ -46,6 +46,13 @@ const reducer = (state=initialState, action)=>{
                 ...state,
                 posts: newPosts
             }
+        case 'NEW_POST':
+            let newPost = [...state.posts];
+            newPost[newPost.length-1].newPost = false;
+            return{
+                ...state,
+                posts: newPost
+            }
         default:
             return state;
     }

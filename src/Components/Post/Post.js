@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './Post.css';
 import MoreHorizIcon from '@material-ui/icons/MoreHoriz';
 import FavoriteBorderIcon from '@material-ui/icons/FavoriteBorder';
@@ -8,12 +8,16 @@ import * as postsActions from '../../store/actions/Posts';
 import {connect} from 'react-redux';
 import {getPostTime} from "../../store/reducers/Posts";
 import Comments from "../Comments/Comments";
-const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageComment}) => {
+const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageComment,newPost,onNewPost}) => {
     let [openComments = false,setOpenComments] = useState();
+
+    useEffect(()=>{
+     setTimeout(()=>onNewPost(),4000)
+    },[newPost])
     let time = getPostTime(date);
     return (
 
-        <article className="post" key={idx}>
+        <article className={newPost ? 'post newPostItem' : "post"} key={idx}>
             <div className="post__container">
             <div className="post__info">
                 <div className="post__infoPerson">
@@ -52,7 +56,8 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
 };
 const mapDispatchToProps = dispatch => {
     return {
-        onDeletePost: (id) => dispatch(postsActions.deletePost(id))
+        onDeletePost: (id) => dispatch(postsActions.deletePost(id)),
+        onNewPost: ()=>dispatch(postsActions.newPost())
     }
 }
 export default connect(null,mapDispatchToProps)(Post);

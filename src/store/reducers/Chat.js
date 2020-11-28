@@ -291,7 +291,7 @@ const initialState = {
         },
 
     ],
-    chatOpen:true,
+    chatOpen:false,
     idChat:1
 
 }
@@ -307,6 +307,14 @@ const reducer = (state=initialState,action)=>{
             return{
                 ...state,
                 chatOpen: false,
+            }
+        case 'ADD_MESSAGE':
+            let id = state.chat.findIndex(item=>item.id===action.id);
+            let newChat = [...state.chat];
+            newChat[id].messages = newChat[id].messages.concat( action.message);
+            return{
+                ...state,
+                chat: newChat
             }
         default:
             return state;

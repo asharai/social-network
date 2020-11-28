@@ -4,9 +4,14 @@
     border-radius: 8px;
     border: 1px solid #fff;
     position: fixed;
-    right:75px;
-    top:70px;
+    right:-375px;
+    top: 70px;
     z-index: 10000;
+    background-color: #fff;
+    transition: 0.5s;
+}
+.active{
+    right:75px;
 }
 .chat__header{
     padding: 17px;
@@ -58,10 +63,12 @@
     margin-left: 5px;
 }
 .chat__body{
-    height: 550px;
+    height: 540px;
+
 overflow-y: auto;
     background-color: #fff;
     padding: 20px;
+
     box-sizing: border-box;
     display: flex;
     flex-direction: column;

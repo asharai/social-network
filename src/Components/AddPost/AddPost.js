@@ -14,7 +14,8 @@ const AddPost = ({onGetPosts}) => {
         shares:0,
         id:Date.now(),
         date:Date.now(),
-        comments:[]
+        comments:[],
+        newPost:true,
     }
     return (
         <div className="addPost">

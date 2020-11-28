@@ -9,3 +9,10 @@ export const openChat =(id)=>{
         id:id
     }
 }
+export const addMessage =(id,message)=>{
+    return{
+        type:'ADD_MESSAGE',
+        id:id,
+        message:message
+    }
+}

@@ -1,8 +1,11 @@
 import React from 'react';
 import CloseIcon from '@material-ui/icons/Close';
+
 import './Chat.css';
 import {connect} from 'react-redux';
 import * as chatActions from '../../store/actions/Chat'
+import AddMessage from "../AddMessage/AddMessage";
+
 const Chat = ({chat,open,id,friends,onCloseChat}) => {
     const idx = (id,arr)=>{
         return arr.findIndex(item=>{
@@ -12,7 +15,6 @@ const Chat = ({chat,open,id,friends,onCloseChat}) => {
 
 
     const messages = chat[idx(id,chat)].messages.map((item,i)=>{
-
         return (
             <li className={item.profile==160? 'chat_personMessage chat__message' : 'chat__message'}>
 
@@ -31,22 +33,40 @@ const Chat = ({chat,open,id,friends,onCloseChat}) => {
             </li>
         )
     })
-    const chatContent = open ? (<div className="chat">
+    const chatContent = open ? (<div className={"chat"}>
         <header className="chat__header">
             <div className="chat__headerContainer">
                 <span className="chat__headerStatus"></span>
                 <h4 className="chat__headerTitle">Chat</h4>
             </div>
-            <CloseIcon onClick={()=>onCloseChat()}/>
+            <CloseIcon style={{cursor:'pointer'}} onClick={()=>onCloseChat()}/>
 
         </header>
         <div className="chat__body">
+
             {messages}
         </div>
-        <div className="chat__addMessage"></div>
+        <AddMessage idx={id} messagesLength={chat[idx(id,chat)].messages.length} />
     </div>) : null;
 
-    return chatContent
+    //return chatContent
+    return (
+        <div className={open ? "chat active" : 'chat'}>
+            <header className="chat__header">
+                <div className="chat__headerContainer">
+                    <span className="chat__headerStatus"></span>
+                    <h4 className="chat__headerTitle">Chat</h4>
+                </div>
+                <CloseIcon style={{cursor:'pointer'}} onClick={()=>onCloseChat()}/>
+
+            </header>
+            <div className="chat__body">
+
+                {messages}
+            </div>
+            <AddMessage idx={id} messagesLength={chat[idx(id,chat)].messages.length} />
+        </div>
+    )
 };
 const mapStateToProps = state =>{
     return{

@@ -25,6 +25,11 @@ export const addedComment = (id,comment) =>{
         comment:comment
     }
 }
+export const newPost = ()=>{
+    return{
+        type: 'NEW_POST'
+    }
+}
 export const getPosts = ()=>{
     return dispatch =>{
         axios.get('https://social-network-956c5.firebaseio.com/posts.json')
