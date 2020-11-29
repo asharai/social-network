@@ -295,6 +295,18 @@ const initialState = {
     idChat:1
 
 }
+export const getMessageTime = date =>{
+    let data =((Date.now()- new Date(date)) / (60*1000)).toFixed();
+    let time = ``;
+    switch(true){
+        case data < 1440:
+            return time=`${data.getHours()} : ${data.getMinutes()}`;
+            break;
+        default:
+            return   time = `More than ${(data/60/30).toFixed()} days ago`;
+            break;
+    };
+}
 const reducer = (state=initialState,action)=>{
     switch (action.type) {
         case 'OPEN_CHAT':

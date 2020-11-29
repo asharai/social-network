@@ -5,7 +5,7 @@ import './Chat.css';
 import {connect} from 'react-redux';
 import * as chatActions from '../../store/actions/Chat'
 import AddMessage from "../AddMessage/AddMessage";
-
+import {getMessageTime} from '../../store/reducers/Chat'
 const Chat = ({chat,open,id,friends,onCloseChat}) => {
     const idx = (id,arr)=>{
         return arr.findIndex(item=>{

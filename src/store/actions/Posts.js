@@ -94,3 +94,16 @@ export const deletePost = (id)=>{
             .catch(err=>console.log(err))
     }
 }
+export const removeNewPost = id =>{
+    return dispatch =>{
+        axios.delete(`https://social-network-956c5.firebaseio.com/posts/${id}/newPost.json`)
+            .then(response => {
+
+                dispatch(newPost(id))
+
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+}

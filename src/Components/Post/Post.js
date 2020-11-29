@@ -12,8 +12,8 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
     let [openComments = false,setOpenComments] = useState();
 
     useEffect(()=>{
-     setTimeout(()=>onNewPost(),4000)
-    },[newPost])
+     setTimeout(()=>onNewPost(idx),4000)
+    },[])
     let time = getPostTime(date);
     return (
 
@@ -57,7 +57,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
 const mapDispatchToProps = dispatch => {
     return {
         onDeletePost: (id) => dispatch(postsActions.deletePost(id)),
-        onNewPost: ()=>dispatch(postsActions.newPost())
+        onNewPost: (id)=>dispatch(postsActions.removeNewPost(id))
     }
 }
 export default connect(null,mapDispatchToProps)(Post);
