@@ -9,6 +9,7 @@ const AddComment = ({idx,onAddComment,onAddCommentToImg,imageComment}) => {
     const comment = {
         text:text,
         likes:0,
+        liked:false,
         id:Date.now(),
         date:Date.now(),
         profile:'John Doe',

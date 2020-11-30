@@ -6,6 +6,18 @@ export const setPosts = (posts)=>{
 
     }
 }
+export const switchLikes = id =>{
+    return{
+        type: 'ADD_LIKE_POST',
+        id:id
+    }
+}
+export const unlike = id =>{
+    return{
+        type: 'REMOVE_LIKE_POST',
+        id:id
+    }
+}
 export const addedPost = (post)=>{
     return{
         type:'ADD_POST',
@@ -106,4 +118,26 @@ export const removeNewPost = id =>{
                 console.log(error)
             })
     }
+}
+export const likePost = (id,likes) =>{
+   return dispatch =>{
+         axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/liked.json`,true)
+            .then(response => {
+            })
+            .catch(error => {
+                console.log(error.response)
+            })
+       axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/likes.json`,likes+1).then(res=>  dispatch(switchLikes(id))).catch(err=>console.log(err.response));
+
+    }
+}
+export const  unLikePost  =  (id,likes) =>{
+    const like = likes-1;
+    return  dispatch  => {
+     axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/liked.json`,'false').then( response => {}).catch(err=>console.log(err.response));
+     axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/likes.json`,like).then(res=>        dispatch(unlike(id))).catch(err=>console.log(err.response));
+
+
+    }
+
 }

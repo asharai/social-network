@@ -26,7 +26,7 @@ const Chat = ({chat,open,id,friends,onCloseChat}) => {
                 <article>
                     <p className="chat__messageText">{item.text}</p>
                     {i==chat[idx(id,chat)].messages.length || chat[idx(id,chat)].messages[i+1]?.profile!=item.profile ?
-                    <span className="chat__messageTime">Yesterday at 8 p.m.</span>  : null }
+                    <span className="chat__messageTime">{getMessageTime(item.time)}</span>  : null }
 
                 </article>
 
@@ -49,7 +49,7 @@ const Chat = ({chat,open,id,friends,onCloseChat}) => {
         <AddMessage idx={id} messagesLength={chat[idx(id,chat)].messages.length} />
     </div>) : null;
 
-    //return chatContent
+
     return (
         <div className={open ? "chat active" : 'chat'}>
             <header className="chat__header">

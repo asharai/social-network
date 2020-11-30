@@ -8,7 +8,7 @@ import * as postsActions from '../../store/actions/Posts';
 import {connect} from 'react-redux';
 import {getPostTime} from "../../store/reducers/Posts";
 import Comments from "../Comments/Comments";
-const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageComment,newPost,onNewPost}) => {
+const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageComment,newPost,onNewPost,onSwitchLikes,liked,onRemoveLike}) => {
     let [openComments = false,setOpenComments] = useState();
 
     useEffect(()=>{
@@ -42,7 +42,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
             </div>
             <p className="post__text">{text}</p>
             <div className="post__feed ">
-                <a  className="post__feedLikes post__feedItem"> <FavoriteBorderIcon/> <span>{likes}</span></a>
+                <a  className="post__feedLikes post__feedItem" style={liked ? {color:'#ff5e3a'}:null} onClick={()=>liked ===true ? onRemoveLike(idx,likes):onSwitchLikes(idx,likes)}> <FavoriteBorderIcon /> <span>{likes}</span></a>
                 <div className="post__feedShare">
                     <a className="post___feedShare__count post__feedItem" onClick={()=>setOpenComments(!openComments)}> <MessageIcon/> <span>{commentsCount}</span> </a>
                     <a className="post___feedShare__count post__feedItem" > <ReplyIcon/>    <span>{shares}</span> </a>
@@ -57,7 +57,9 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
 const mapDispatchToProps = dispatch => {
     return {
         onDeletePost: (id) => dispatch(postsActions.deletePost(id)),
-        onNewPost: (id)=>dispatch(postsActions.removeNewPost(id))
+        onNewPost: (id)=>dispatch(postsActions.removeNewPost(id)),
+        onSwitchLikes:(id,likes)=>dispatch(postsActions.likePost(id,likes)),
+        onRemoveLike:(id,likes)=>dispatch(postsActions.unLikePost(id,likes))
     }
 }
 export default connect(null,mapDispatchToProps)(Post);

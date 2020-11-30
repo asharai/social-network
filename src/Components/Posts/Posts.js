@@ -4,7 +4,7 @@ import AddPost from "../AddPost/AddPost";
 import './Posts.css';
 import * as postsActions from '../../store/actions/Posts';
 import {connect} from 'react-redux';
-const Posts = ({onGetPosts,posts,loading}) => {
+const Posts = ({onGetPosts,posts}) => {
     useEffect(()=>{
         onGetPosts();
     },[])
@@ -13,7 +13,7 @@ const Posts = ({onGetPosts,posts,loading}) => {
 
         return posts.sort((a,b)=>b.date-a.date).map((item,i)=>{
 
-            return <Post commentsCount={item.comments.length}   text={item.text} likes={item.likes}  idx={item.id} shares={item.shares} date={item.date} newPost={item.newPost} />
+            return <Post commentsCount={item.comments.length}   text={item.text} likes={item.likes} liked={item.liked}  idx={item.id} shares={item.shares} date={item.date} newPost={item.newPost} />
         })
     }
 

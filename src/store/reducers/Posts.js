@@ -53,6 +53,25 @@ const reducer = (state=initialState, action)=>{
                 ...state,
                 posts: newPost
             }
+        case 'ADD_LIKE_POST':
+            let ind = state.posts.findIndex(item=>item.id===action.id);
+            let newPostsLike = [...state.posts];
+            newPostsLike[ind].likes =  newPostsLike[ind].likes+1
+            newPostsLike[ind].liked = true;
+            return{
+                ...state,
+                posts: newPostsLike
+            }
+        case 'REMOVE_LIKE_POST':
+            let indLike = state.posts.findIndex(item=>item.id===action.id);
+            let newPostsUnlike = [...state.posts];
+            newPostsUnlike[indLike].liked = false;
+            newPostsUnlike[indLike].likes =  newPostsUnlike[indLike].likes-1
+
+            return{
+                ...state,
+                posts: newPostsUnlike
+            }
         default:
             return state;
     }

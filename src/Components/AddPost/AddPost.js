@@ -11,6 +11,7 @@ const AddPost = ({onGetPosts}) => {
     const post = {
         text:text,
               likes:0,
+        liked:false,
         shares:0,
         id:Date.now(),
         date:Date.now(),

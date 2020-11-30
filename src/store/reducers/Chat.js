@@ -9,35 +9,35 @@ const initialState = {
                 {
                     id:0,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606320930000,
                     profile:1,
 
                 },
                 {
                     id:1,
                     text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque ea earum labore sint? Ab amet aspernatur, beatae ea earum eius exercitationem facere numquam, omnis quae sit tempora velit veniam voluptatem!',
-                    time:'Yesterday',
+                    time:1606621760075,
                     profile:160,
 
                 },
                 {
                     id:2,
                     text:'test',
-                    time:'Yesterday',
+                    time:1606621780015,
                     profile:160,
 
                 },
                 {
                     id:3,
                     text:'Work',
-                    time:'Yesterday',
+                    time:1606621840065,
                     profile:1,
 
                 },
                 {
                     id:4,
                     text:'Realy?',
-                    time:'Yesterday',
+                    time:1606621940075,
                     profile:1,
 
                 }
@@ -53,14 +53,14 @@ const initialState = {
                 {
                     id:0,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621758075,
                     profile:2,
                     img:'https://images.unsplash.com/photo-1604186838309-c6715f0d3e6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=635&q=80'
                 },
                 {
                     id:1,
                     text:'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cumque ea earum labore sint? Ab amet aspernatur, beatae ea earum eius exercitationem facere numquam, omnis quae sit tempora velit veniam voluptatem!',
-                    time:'Yesterday',
+                    time:1606621710025,
                     profile:160,
                     img:'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png'
                 }
@@ -81,14 +81,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621780075,
                     profile:3,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621723575,
                     profile:160,
 
                 }
@@ -109,14 +109,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:4,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:160,
 
                 }]
@@ -134,14 +134,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:5,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:160,
 
                 }],
@@ -162,14 +162,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:6,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:160,
 
                 }],
@@ -190,14 +190,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:7,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:160,
 
                 }],
@@ -218,14 +218,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:8,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:160,
 
                 }],
@@ -246,14 +246,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:9,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:160,
 
                 }],
@@ -274,14 +274,14 @@ const initialState = {
                 {
                     id:1,
                     text:'Hello man!',
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:10,
 
                 },
                 {
                     id:2,
                     text: `Hello! I'm fine `,
-                    time:'Yesterday',
+                    time:1606621740075,
                     profile:160,
 
                 }],
@@ -295,15 +295,19 @@ const initialState = {
     idChat:1
 
 }
+const arrMonth = ['January','February','March','April','May','June','July','August','September','October','November','December']
 export const getMessageTime = date =>{
     let data =((Date.now()- new Date(date)) / (60*1000)).toFixed();
     let time = ``;
     switch(true){
         case data < 1440:
-            return time=`${data.getHours()} : ${data.getMinutes()}`;
+            return time=`${new Date(date).getHours()}:${new Date(date).getMinutes()}`;
+            break;
+        case data < 2880:
+            return time=`Yesterday at ${new Date(date).getHours()} : ${new Date(date).getMinutes()}`;
             break;
         default:
-            return   time = `More than ${(data/60/30).toFixed()} days ago`;
+            return   time = `${new Date(date).getDate()} ${arrMonth[new Date(date).getMonth()]} at ${new Date(date).getHours()}:${new Date(date).getMinutes()}`;
             break;
     };
 }
