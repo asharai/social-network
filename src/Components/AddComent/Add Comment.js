@@ -5,12 +5,13 @@ import * as imageAcitons from '../../store/actions/Images'
 import {connect} from "react-redux";
 
 const AddComment = ({idx,onAddComment,onAddCommentToImg,imageComment}) => {
+    const id = Date.now();
     const [text,setText]=useState();
     const comment = {
         text:text,
         likes:0,
         liked:false,
-        id:Date.now(),
+        id:id,
         date:Date.now(),
         profile:'John Doe',
         img:'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png',
@@ -20,7 +21,7 @@ const AddComment = ({idx,onAddComment,onAddCommentToImg,imageComment}) => {
             onAddCommentToImg(idx,comment)
         }
         else{
-            onAddComment(idx,comment);
+            onAddComment(idx,comment,id);
         }
         setText('');
     }
@@ -40,7 +41,7 @@ const AddComment = ({idx,onAddComment,onAddCommentToImg,imageComment}) => {
 };
 const mapDispatchToProps = dispatch => {
     return {
-        onAddComment: (idx,comment) => dispatch(postsActions.addComment(idx,comment)),
+        onAddComment: (idx,comment,idComment) => dispatch(postsActions.addComment(idx,comment,idComment)),
         onAddCommentToImg: (idx,comment) => dispatch(imageAcitons.addCommentToImg(idx,comment)),
     }
 }

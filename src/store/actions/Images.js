@@ -21,3 +21,15 @@ export const addCommentToImg=(id,comment)=>{
         comment:comment
     }
 }
+export const addLiketoImg = (id)=>{
+    return{
+        type:'ADD_LIKE_TO_IMG',
+        id:id
+    }
+}
+export const removeLikeImg = (id)=>{
+    return {
+        type:'REMOVE_LIKE_IMG',
+        id:id
+    }
+}

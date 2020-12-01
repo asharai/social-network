@@ -13,7 +13,7 @@ const Posts = ({onGetPosts,posts}) => {
 
         return posts.sort((a,b)=>b.date-a.date).map((item,i)=>{
 
-            return <Post commentsCount={item.comments.length}   text={item.text} likes={item.likes} liked={item.liked}  idx={item.id} shares={item.shares} date={item.date} newPost={item.newPost} />
+            return <Post commentsCount={item.comments?.length}   text={item.text} likes={item.likes} liked={item.liked}  idx={item.id} shares={item.shares} date={item.date} newPost={item.newPost} />
         })
     }
 

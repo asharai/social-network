@@ -42,6 +42,22 @@ export const newPost = ()=>{
         type: 'NEW_POST'
     }
 }
+export const addLikeToComment = (id,idComment,likes)=>{
+    return {
+        type:'ADD_LIKE_СOMMENT',
+        id:id,
+        idComment:idComment,
+        likes:likes
+    }
+}
+export const removeLikeComment =(id,idComment,likes)=>{
+    return{
+        type:'REMOVE_LIKE_СOMMENT',
+        id:id,
+        idComment:idComment,
+        likes:likes
+    }
+}
 export const getPosts = ()=>{
     return dispatch =>{
         axios.get('https://social-network-956c5.firebaseio.com/posts.json')
@@ -84,9 +100,9 @@ let idx = post.id;
             })
     }
 }
-export const addComment = (id,comment) =>{
+export const addComment = (id,comment,idComment) =>{
     return dispatch =>{
-        axios.post(`https://social-network-956c5.firebaseio.com/posts/${id}/comments.json`, {...comment})
+        axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}.json`, {...comment})
             .then(response => {
 
                 dispatch(addedComment(id,comment))
@@ -136,8 +152,29 @@ export const  unLikePost  =  (id,likes) =>{
     return  dispatch  => {
      axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/liked.json`,'false').then( response => {}).catch(err=>console.log(err.response));
      axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/likes.json`,like).then(res=>        dispatch(unlike(id))).catch(err=>console.log(err.response));
-
+    }
+}
+export const likeComment = (id,idComment,likes) =>{
+    return dispatch =>{
+        axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}/liked.json`,true)
+            .then(response => {
+            })
+            .catch(error => {
+                console.log(error.response)
+            })
+        axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}/likes.json`,likes+1).then(res=>  dispatch(addLikeToComment(id,idComment))).catch(err=>console.log(err.response));
 
     }
+}
+export const unlikeComment = (id,idComment,likes) =>{
+    return dispatch =>{
+        axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}/liked.json`,'false')
+            .then(response => {
+            })
+            .catch(error => {
+                console.log(error.response)
+            })
+        axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}/likes.json`,likes-1).then(res=>  dispatch(removeLikeComment(id,idComment))).catch(err=>console.log(err.response));
 
+    }
 }

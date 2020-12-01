@@ -10,7 +10,7 @@ import Modal from "@material-ui/core/Modal";
 
 import Post from "../Post/Post";
 
-const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
+const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg,addLiketoImg,removeLikeImg,liked}) => {
     const [open=false,setOpen]=useState();
     const useStyles = makeStyles({
         root: {
@@ -33,7 +33,7 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
             <div className="modal__mainImage">
                 <img  src={item.img} alt=""/>
                 <article className="modal__post">
-                <Post imageComment={true} commentsCount={item.comments.length}   text={item.text} likes={item.likes}  idx={item.id} shares={item.shares} date={item.date} />
+                <Post imageComment={true} commentsCount={item.comments.length}  liked={false} text={item.text} likes={item.likes}  idx={item.id} shares={item.shares} date={item.date} />
                 </article>
             </div>
         )
@@ -51,7 +51,7 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg}) => {
                         <h3>{item.headerPhoto}</h3>
                         <h6>1 Week ago</h6>
                     </hgroup>
-                    <span className="photos__likesCount">{item.likes}  <FavoriteBorderIcon/></span>
+                    <span className="photos__likesCount" >{item.likes}  <FavoriteBorderIcon/></span>
                 </div>
             </div><img className="photos__img" src={item.img} alt=""/></li>
         )
@@ -91,6 +91,8 @@ const mapDispatchToProps = dispatch =>{
     onSetIdImg:(id)=> dispatch(imagesActions.setIdImg(id)),
     onNextImg:()=> dispatch(imagesActions.nextImg()),
     onPrevImg:()=> dispatch(imagesActions.prevImg()),
+    onAddLike:(id)=> dispatch(imagesActions.addLiketoImg(id)),
+    onRemoveLike:(id)=> dispatch(imagesActions.removeLikeImg(id)),
     }
 }
 export default connect(mapStateToProps,mapDispatchToProps)(Photos);

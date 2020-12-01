@@ -2,8 +2,9 @@ import React from 'react';
 import './Comment.css';
 import FavoriteBorderIcon from "@material-ui/icons/FavoriteBorder";
 import {getPostTime} from "../../../store/reducers/Posts";
-
-const Comment = ({idx,text,time,name,likes,img}) => {
+import {connect} from 'react-redux';
+import * as postActions from '../../../store/actions/Posts'
+const Comment = ({idx,text,time,name,likes,img,postID,onAddLikeToComment,onRemoveLikeComment,liked}) => {
     let date = getPostTime(time);
     return (
         <li  className="comment">
@@ -19,11 +20,16 @@ const Comment = ({idx,text,time,name,likes,img}) => {
                 </div>
                 <p className="comment__text">{text}</p>
                 <div className="comment__feed ">
-                    <a  className="comment__feedLikes post__feedItem"> <FavoriteBorderIcon/> <span>{likes}</span></a>
+                    <a  className="comment__feedLikes post__feedItem" style={liked===true ? {color:'#ff5e3a'}:null} onClick={()=>liked ?onRemoveLikeComment(postID,idx,likes) :onAddLikeToComment(postID,idx,likes)}> <FavoriteBorderIcon/> <span>{likes}</span></a>
                 </div>
             </article>
         </li>
     );
 };
-
-export default Comment;
+const mapDispatchToProps = dispatch =>{
+    return {
+        onAddLikeToComment:(id,idComment,likes)=>dispatch(postActions.likeComment(id,idComment,likes)),
+        onRemoveLikeComment:(id,idComment,likes)=>dispatch(postActions.removeLikeComment(id,idComment,likes))
+    }
+}
+export default  connect(null,mapDispatchToProps)(Comment);

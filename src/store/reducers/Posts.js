@@ -66,12 +66,32 @@ const reducer = (state=initialState, action)=>{
             let indLike = state.posts.findIndex(item=>item.id===action.id);
             let newPostsUnlike = [...state.posts];
             newPostsUnlike[indLike].liked = false;
-            newPostsUnlike[indLike].likes =  newPostsUnlike[indLike].likes-1
-
+            newPostsUnlike[indLike].likes =  newPostsUnlike[indLike].likes-1;
             return{
                 ...state,
                 posts: newPostsUnlike
             }
+        case 'ADD_LIKE_СOMMENT':
+            let indPost = state.posts.findIndex(item=>item.id===action.id);
+            let indComment =  state.posts[indPost].comments.findIndex(item=>item.id===action.idComment);
+            let newPostWithCommentLike = [...state.posts];
+            newPostWithCommentLike[indPost].comments[indComment].likes +=1;
+            newPostWithCommentLike[indPost].comments[indComment].liked = true;
+            return{
+                ...state,
+                posts: newPostWithCommentLike
+            }
+        case 'REMOVE_LIKE_СOMMENT':
+            let indPostUnlike = state.posts.findIndex(item=>item.id===action.id);
+            let indCommentUnlike =  state.posts[indPostUnlike].comments.findIndex(item=>item.id===action.idComment);
+            let newPostWithCommentUnLike = [...state.posts];
+            newPostWithCommentUnLike[indPostUnlike].comments[indCommentUnlike].likes -=1;
+            newPostWithCommentUnLike[indPostUnlike].comments[indCommentUnlike].liked = false;
+            return{
+                ...state,
+                posts: newPostWithCommentUnLike
+            }
+
         default:
             return state;
     }
