@@ -9,7 +9,7 @@ import {connect} from 'react-redux';
 import {getPostTime} from "../../store/reducers/Posts";
 import Comments from "../Comments/Comments";
 import * as imagesActions from "../../store/actions/Images";
-const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageComment,newPost,onNewPost,onSwitchLikes,liked,onRemoveLike,onAddLikePhoto,onRemoveLikePhoto,likedImg}) => {
+const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageComment,newPost,onNewPost,onSwitchLikes,liked,onRemoveLike,onAddLikePhoto,onRemoveLikePhoto}) => {
     let [openComments = false,setOpenComments] = useState();
 
     useEffect(()=>{
@@ -20,8 +20,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
       return  liked ===true ? onRemoveLike(idx,likes):onSwitchLikes(idx,likes)
     }
     const likesToPhoto = ()=>{
- alert( likedImg === true)
-        return  likedImg === true ? onRemoveLikePhoto(idx) :  onAddLikePhoto(idx);
+        return  liked === true ? onRemoveLikePhoto(idx) :  onAddLikePhoto(idx);
     }
     return (
 

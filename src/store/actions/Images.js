@@ -33,3 +33,19 @@ export const removeLikeImg = (id)=>{
         id:id
     }
 }
+export const addLikeToImgComment = (id,idComment,likes)=>{
+    return {
+        type:'ADD_LIKE_IMG_СOMMENT',
+        id:id,
+        idComment:idComment,
+        likes:likes
+    }
+}
+export const removeLikeImgComment =(id,idComment,likes)=>{
+    return{
+        type:'REMOVE_LIKE_IMG_СOMMENT',
+        id:id,
+        idComment:idComment,
+        likes:likes
+    }
+}

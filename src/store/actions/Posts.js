@@ -167,14 +167,14 @@ export const likeComment = (id,idComment,likes) =>{
     }
 }
 export const unlikeComment = (id,idComment,likes) =>{
+    const like = likes-1;
     return dispatch =>{
         axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}/liked.json`,'false')
-            .then(response => {
-            })
+            .then(response => {})
             .catch(error => {
                 console.log(error.response)
             })
-        axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}/likes.json`,likes-1).then(res=>  dispatch(removeLikeComment(id,idComment))).catch(err=>console.log(err.response));
+        axios.put(`https://social-network-956c5.firebaseio.com/posts/${id}/comments/${idComment}/likes.json`,like).then(res=> dispatch(removeLikeComment(id,idComment))).catch(err=>console.log(err.response));
 
     }
 }

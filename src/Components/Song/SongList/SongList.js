@@ -1,6 +1,7 @@
 import React from 'react';
 import Song from "../Song";
 import './SongList.css'
+import ReactPlayer from "react-player";
 const songs = [
     {id:1,
     img:'https://images.unsplash.com/photo-1603224288850-cf0a7939278c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
@@ -36,6 +37,7 @@ let song = songs.map(item=>{
 const SongList = () => {
     return (
         <ol className="songList">
+
             {song}
         </ol>
     );

@@ -69,6 +69,26 @@ const reducer = (state=initialState,action)=>{
                 ...state,
                 images: newImagesUnlike
             }
+        case 'ADD_LIKE_IMG_СOMMENT':
+            let indImg = state.images.findIndex(item=>item.id===action.id);
+            let indComment =  state.images[indImg].comments.findIndex(item=>item.id===action.idComment);
+            let newImagesWithCommentLike = [...state.images];
+            newImagesWithCommentLike[indImg].comments[indComment].likes +=1;
+            newImagesWithCommentLike[indImg].comments[indComment].liked = true;
+            return{
+                ...state,
+                images: newImagesWithCommentLike
+            }
+        case 'REMOVE_LIKE_IMG_СOMMENT':
+            let indImagesUnlike = state.images.findIndex(item=>item.id===action.id);
+            let indCommentUnlike =  state.images[indImagesUnlike].comments.findIndex(item=>item.id===action.idComment);
+            let newImagesWithCommentUnLike = [...state.images];
+            newImagesWithCommentUnLike[indImagesUnlike].comments[indCommentUnlike].likes -=1;
+            newImagesWithCommentUnLike[indImagesUnlike].comments[indCommentUnlike].liked = false;
+            return{
+                ...state,
+                images: newImagesWithCommentUnLike
+            }
         default:
             return state;
     }
