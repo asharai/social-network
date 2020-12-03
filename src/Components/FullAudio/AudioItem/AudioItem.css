@@ -1,5 +1,20 @@
 .audioItem{
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
+    background: rgba(10, 0, 15, 0.7);
+    padding: 10px 20px;
+    height: 80px;
+    color: #fff;
+    box-sizing: border-box;
+    align-items: center;
+}
+.audioItem > img{
+    height: 50px;
+    width: 50px;
+}
+.audioItem >hgroup>h4,.audioItem >hgroup>h6 {
+    color: #fff;
+}
+.audioItem > span {
+    padding-left: 10px;
 }

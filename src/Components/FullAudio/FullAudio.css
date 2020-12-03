@@ -1,0 +1,31 @@
+
+.fullAudio{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.fullAudio__list{
+    display: flex;
+    flex-direction: column;
+    list-style: none;
+   padding: 0;
+    margin-top: 0;
+}
+.fullAudio__list > li:first-child {
+    display: grid;
+   grid-template-columns: 1fr 1fr 2fr 1fr 1fr 1fr 1fr;
+    align-items: center;
+    padding-top: 0;
+    background: rgba(10, 0, 15, 0.7);
+    height: 50px;
+    padding: 10px 20px;
+
+    color: #9a9fbf;
+    font-size: 13px;
+    font-weight: bold;
+    align-items: center;
+}
+.fullAudio__list > li:nth-child(odd){
+    background: rgba(10, 0, 15, 0.5);
+}

@@ -1,0 +1,29 @@
+.controls{
+    display: flex;
+    flex-direction: row;
+    height: 100px;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    background: #3a3a3a;
+    color: #fff;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.progressb{
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+
+}
+.progressb > input{
+    width: 95%;
+    border: none;
+    outline: none;
+}
+.volumeBar{
+    display: flex;
+    align-content: center;
+    overflow:hidden;
+    transition: all .5s;
+}

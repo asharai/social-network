@@ -1,22 +1,29 @@
 import React from 'react';
 import PlayCircleOutlineIcon from '@material-ui/icons/PlayCircleOutline';
 import HighlightOffIcon from '@material-ui/icons/HighlightOff';
-import './AudioItem.css'
-const AudioItem = ({id,img,songName,songAuthor,album,duration,released}) => {
+import './AudioItem.css';
+import {connect} from 'react-redux';
+import * as audioActions from "../../../store/actions/Audio";
+
+const AudioItem = ({id,img,title,group,album,duration,released,onSwitchSong}) => {
     return (
         <li key={id} className="audioItem">
-            <PlayCircleOutlineIcon/>
+            <PlayCircleOutlineIcon onClick={()=>onSwitchSong(id)}/>
             <img src={img} alt=""/>
             <hgroup>
-                <h4>{songName}</h4>
-                <h6>{songAuthor}</h6>
+                <h4>{title}</h4>
+                <h6>{group}</h6>
             </hgroup>
             <span>{album}</span>
             <span>{released}</span>
             <span>{duration}</span>
-            <HighlightOffIcon/>
+            <span><HighlightOffIcon/></span>
         </li>
     );
 };
-
-export default AudioItem;
+const mapDispatchToProps = dispatch =>{
+    return {
+        onSwitchSong:(id)=>dispatch(audioActions.setIDSong(id)),
+    }
+}
+export default connect(null,mapDispatchToProps)(AudioItem);
