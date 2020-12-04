@@ -24,3 +24,9 @@ export const switchSongState = ()=>{
         type:'SWITCH_SONG_STATE',
     }
 }
+export const removeSong = (id)=>{
+    return{
+        type:'REMOVE_SONG',
+        id:id
+    }
+}

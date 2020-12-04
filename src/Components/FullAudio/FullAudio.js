@@ -5,12 +5,12 @@ import './FullAudio.css';
 import * as audioActions from '../../store/actions/Audio'
 import AudioItem from "./AudioItem/AudioItem";
 import AudioPlayer from "./AudioPlayer/AudioPlayer";
-
+import CloseIcon from '@material-ui/icons/Close';
 
 const FullAudio = ({audio,onSetAudioModal,modalAudioOpen}) => {
     const audios=audio.map(item=>{
         return (
-            <AudioItem {...item} released='2014'/>
+            <AudioItem {...item}/>
         )
     })
     return (
@@ -30,6 +30,7 @@ const FullAudio = ({audio,onSetAudioModal,modalAudioOpen}) => {
                     {audios}
                 </ul>
                 <div className="fullAudio__controls">
+                    <span className="fullAudio__close" onClick={()=>onSetAudioModal()}><CloseIcon style={{fontSize:'32px'}}/> </span>
                    <AudioPlayer/>
                 </div>
             </div>

@@ -29,3 +29,15 @@
 .fullAudio__list > li:nth-child(odd){
     background: rgba(10, 0, 15, 0.5);
 }
+.fullAudio__close{
+    align-self: flex-end;
+    cursor: pointer;
+}
+.fullAudio__close:hover{
+    color: red;
+}
+.fullAudio__controls{
+    display: flex;
+
+    flex-direction: column;
+}

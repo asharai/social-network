@@ -18,3 +18,10 @@
 .audioItem > span {
     padding-left: 10px;
 }
+.audioItem__btn{
+cursor: pointer;
+    transition: all .3s;
+}
+.audioItem__btn:hover{
+    color: #ff5e3a;
+}

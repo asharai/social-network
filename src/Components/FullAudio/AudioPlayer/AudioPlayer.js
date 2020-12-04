@@ -12,7 +12,7 @@ import './AudioPlayer.css';
 import * as audioActions from "../../../store/actions/Audio";
 const AudioPlayer = ({playingSong,onNextSong,onPrevSong,songs,idx,onSwitchSongState}) => {
     const audio = useRef('audio_tag');
-    const fmtMss= (s)=>{return (s-(s%=60))/60 +(9<s ? ':':'0')+ ~(s)}
+    const fmtMss= (s)=> {return(s-(s%=60))/60+(9<s?':':':0')+s}
 
     const [stateVolum,setStateVolume]= useState();
     const [dur,setDur]= useState(0);
@@ -51,17 +51,15 @@ audio.current.currentTime = compute;
 
                 {playingSong  ? <PauseIcon/> : <PlayArrowIcon/>}</span>
                 <span onClick={()=>onNextSong()}><SkipNextIcon/></span>
-                <span className="random"><CompareArrowsIcon/></span>
-                <span className="repeat"><RepeatIcon/></span>
             </div>
             <div className="progressb">
-                <span className="currentT">{fmtMss(cur)}</span>
-                <input type="range" onChange={handleProgress} value={(cur)*100/dur} name="progressbar" id=""/>
-                <span className="totalT">{fmtMss(dur)}</span>
+                <span className="currentT">{fmtMss(cur.toFixed())}</span>
+                <input type="range"  title='' onChange={handleProgress} autocomplete="off" value={(cur)*100/dur} name="progressbar"/>
+                <span className="totalT">{fmtMss(dur.toFixed())}</span>
             </div>
             <div className="volumeBar">
                 <span className="volume"><VolumeUpIcon/></span>
-                <input type="range" novalidate value="50" name="volBar" value={stateVolum} onChange={(e)=>setVolume(e.target.value/100)}/>
+                <input type="range"   value="50" name="volBar" value={stateVolum} onChange={(e)=>setVolume(e.target.value/100)}/>
             </div>
         </div>
     );
