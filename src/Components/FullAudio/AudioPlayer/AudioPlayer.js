@@ -43,7 +43,7 @@ audio.current.currentTime = compute;
             <audio
                 onTimeUpdate={(e)=>setCur(e.target.currentTime)}
                 onCanPlay={(e)=>setDur(e.target.duration)}
-                 ref={audio} preload="auto" src={songs[idx].audioSrc}
+                 ref={audio} preload="auto" src={songs[idx]?.audioSrc}
                 autoPlay={playingSong}></audio>
             <div className="musicControls">
                 <span onClick={()=>onPrevSong()}><SkipPreviousIcon/></span>

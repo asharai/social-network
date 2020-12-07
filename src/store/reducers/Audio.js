@@ -106,8 +106,15 @@ const reducer = (state=initialState,action)=>{
                 idActiveSong: state.idActiveSong-1
             }
         case 'REMOVE_SONG':
+
             let newAuidos = [...state.audio];
-            newAuidos = newAuidos[ action.id+1 ] ? newAuidos.slice(0,action.id).concat(newAuidos.slice(action.id+1)) : newAuidos.slice(0,action.id)
+            if(newAuidos.length===1){
+                return {
+                    ...state,
+                    audio:[]
+                }
+            }
+            newAuidos = newAuidos.filter(item=>item.id!=action.id);
             return {
                 ...state,
                 audio: newAuidos
