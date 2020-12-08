@@ -8,6 +8,7 @@ import Sidebar from "./Components/Sidebar/Sidebar";
 import LeftMenu from "./Components/LeftMenu/LeftMenu";
 import ChatMenu from "./Components/Chat/ChatMenu/ChatMenu";
 import Chat from "./Components/Chat/Chat";
+import Weather from "./containers/Weather/Weather";
 
 
 function App() {
@@ -20,7 +21,7 @@ function App() {
                <LeftMenu/>
            </Sidebar>
            <Switch>
-               <Route  path="/social-network">
+               <Route  path="/social-network/home">
                    <PersonInfo/>
                </Route>
            </Switch>
@@ -28,6 +29,9 @@ function App() {
                <ChatMenu/>
            </Sidebar>
            <Chat/>
+           <Route  path="/social-network/weather" exact>
+               <Weather/>
+           </Route>
        </div>
    </Router>
   );
