@@ -4,5 +4,6 @@ import images from './Images';
 import videos from './Videos';
 import chat from './Chat';
 import audio from './Audio';
+import weather from './Weather'
 import {combineReducers} from "redux";
-export default combineReducers({friends,posts,images,videos,chat,audio})
+export default combineReducers({friends,posts,images,videos,chat,audio,weather})
