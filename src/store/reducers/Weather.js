@@ -2,6 +2,9 @@ const initialState = {
     weather:{},
 
 };
+export const kelvinToCelsii = temp =>{
+    return temp - 273.5
+}
 const reducer = (state=initialState, action)=>{
     switch (action.type) {
         case 'SET_WEATHER':

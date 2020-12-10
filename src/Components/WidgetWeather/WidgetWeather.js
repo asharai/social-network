@@ -1,25 +1,29 @@
 import React from 'react';
-
-const WidgetWeather = () => {
+import './WidgetWeather.css';
+const WidgetWeather = ({weatherNow,maxWeather,minWeather,img}) => {
     return (
         <div className='widgetWeather'>
-            <h4>Widget Preview</h4>
+            <h4 className="widgetWeather__title">Widget Preview</h4>
             <div className="widgetWeather__content">
+                <div className="widgetWeather__background"></div>
                 <div className="widgetWeather__info">
-                    <aside>
-                        <h2 className="widgetWeather__temperature"></h2>
+                    <aside className="widgetWeather__main">
+                        <h2 className="widgetWeather__temperature">{weatherNow}<sup>o</sup></h2>
                         <hgroup>
-                            <h6></h6>
-                            <h6></h6>
+                            <p>{maxWeather}<sup>o</sup></p>
+                            <p>{minWeather}<sup>o</sup></p>
                         </hgroup>
+                        <img src={img} alt=""/>
                     </aside>
-                    <span></span>
+                  <ul className="widgetWeather__forecast">
+                      <li>
+                          <span></span>
+                          <img src=""></img>
+                          <span></span>
+                      </li>
+                  </ul>
                 </div>
-                <article className="widgetWeather__description">
-                    <p></p>
-                    <span>Real feel:</span>
-                    <span>Chance of rain:</span>
-                </article>
+
                 <div className="widgetWeather__forecast"></div>
             </div>
         </div>

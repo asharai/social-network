@@ -1,0 +1,61 @@
+.widgetWeather__title{
+    height: 50px;
+    padding:20px 25px;
+    box-sizing: border-box;
+    background-color: #fff;
+
+}
+.widgetWeather{
+    width: 300px;
+    height: 400px;
+}
+.widgetWeather__content{
+    width: 300px;
+    height: 400px;
+    position: relative;
+
+
+}
+.widgetWeather__info{
+    z-index: 2;
+    position: relative;
+    background-color:  rgba(25, 181, 254, .8);
+    height: 100%;
+}
+.widgetWeather__background{
+    background-image: url('http://www.pngmart.com/files/5/City-PNG-Picture.png');
+
+    height: 100%;
+    background-size: cover;
+    width: 100%;
+    z-index: 1;
+
+    position: absolute;
+    top: 0;
+}
+.widgetWeather__forecast{
+    padding: 0;
+    list-style: none;
+}
+.widgetWeather__main{
+    color: #fff;
+    display: flex;
+  align-items: center;
+    justify-content: center;
+}
+.widgetWeather__temperature{
+    font-size: 50px;
+    color: #fff;
+    margin-right: 10px;
+}
+.widgetWeather__temperature>sup{
+    font-size: 40px;
+}
+.widgetWeather__main > hgroup{
+    margin-top:10px;
+}
+.widgetWeather__main > hgroup >p {
+   margin: 0;
+    font-size: 16px;
+
+}
