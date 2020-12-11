@@ -4,3 +4,9 @@ export const setWeather = (weather)=>{
         weather:weather,
     }
 }
+export const setWeatherWeek = (weather)=>{
+    return{
+        type:'SET_WEATHER_WEEK',
+        weatherWeek:weather,
+    }
+}

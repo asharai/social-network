@@ -1,5 +1,6 @@
 const initialState = {
     weather:{},
+    weatherWeek:[],
 
 };
 export const kelvinToCelsii = temp =>{
@@ -9,8 +10,14 @@ const reducer = (state=initialState, action)=>{
     switch (action.type) {
         case 'SET_WEATHER':
             return {
+                ...state,
                 weather:action.weather
 
+            }
+        case 'SET_WEATHER_WEEK':
+            return{
+                ...state,
+                weatherWeek:action.weatherWeek
             }
 
         default:

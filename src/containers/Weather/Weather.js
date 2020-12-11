@@ -7,10 +7,11 @@ import * as weatherActions from '../../store/actions/Weather'
 import WidgetWeather from "../../Components/WidgetWeather/WidgetWeather";
 const Weather = ({onSetWeather,weather}) => {
   useEffect(()=>{
-      axios.get('https://api.openweathermap.org/data/2.5/weather?q=San Francisco&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>onSetWeather(res.data))
-      axios.get('https://api.openweathermap.org/data/2.5/weather?q=San Francisco,us&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>console.log(res))
+      axios.get('https://api.openweathermap.org/data/2.5/weather?q=San Francisco&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>onSetWeather(res.data)).catch(err=>console.log(err))
+
   },[])
     const returnValue = val => weather.main ? kelvinToCelsii(val).toFixed() : 0;
+
 
     return (
         <div className="weather">

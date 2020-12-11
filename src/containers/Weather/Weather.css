@@ -8,6 +8,8 @@
     z-index: -12;
     display: flex;
     flex-direction: column;
+
+
 }
 .weather__header{
     padding-top:70px;
@@ -94,4 +96,9 @@
 }
 .fas{
     padding-bottom: 15px;
+}
+.weather__container{
+    width: 80%;
+    padding-top: 30px;
+    align-self: center;
 }
