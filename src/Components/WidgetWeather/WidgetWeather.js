@@ -15,12 +15,7 @@ const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,we
     const fullMonth = [ "January","February","March","April","May","June","July","August","September","October","November" ,"December"]
     const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
     const forecastItem = weatherWeek? weatherWeek.map((item,i)=>{
-
-
         const giveDay= ()=> days[date.getDay()+i+1] ?  days[date.getDay()+i+1] :  days[0+i-1]
-
-
-
         return (
             <li className="widgetWeather__forecastItem">
                 <span>{giveDay()}</span>
