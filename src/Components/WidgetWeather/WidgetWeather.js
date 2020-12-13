@@ -10,12 +10,21 @@ const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,we
           onSetWeatherWeek(res.data.daily)
       }).catch(err=>console.log(err))
     },[]);
+    console.log(weatherWeek)
     let date = new Date (Date.now());
-    const fullDays = ['Sunday ','Monday','Wednesday','Thursday','Friday','Saturday'];
+    const fullDays = ['Sunday ','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     const fullMonth = [ "January","February","March","April","May","June","July","August","September","October","November" ,"December"]
     const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
     const forecastItem = weatherWeek? weatherWeek.map((item,i)=>{
-        const giveDay= ()=> days[date.getDay()+i+1] ?  days[date.getDay()+i+1] :  days[0+i-1]
+        const giveDay= ()=> {
+            let j = i - days.length;
+            if (days[date.getDay() + i + 1]) {
+                return days[date.getDay() + i + 1]
+            } else {
+                return days[date.getDay() + j + 1];
+
+            }
+        }
         return (
             <li className="widgetWeather__forecastItem">
                 <span>{giveDay()}</span>

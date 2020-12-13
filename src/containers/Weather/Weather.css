@@ -1,7 +1,7 @@
 .weather{
     min-height: 100vh;
-    padding-left: 70px;
-    padding-right: 70px;
+
+    padding-bottom: 40px;
     font-size: 14px;
     color: #fff;
     background-color:#edf2f6;
@@ -100,5 +100,71 @@
 .weather__container{
     width: 80%;
     padding-top: 30px;
+    display: grid;
     align-self: center;
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+   
+}
+
+.weather__settings{
+    width: 900px;
+    background-color: #fff;
+    margin-left: 50px;
+    height: 200px;
+    margin-bottom: 20px;
+
+}
+.weather__settingsTitle{
+    height: 50px;
+    padding:20px 25px;
+    box-sizing: border-box;
+    background-color: #fff;
+    border-bottom: 1px solid lightgray;
+
+}
+.weather__settingsContent{
+    width: 100%;
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+.weather__settingsSwitch{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 40%;
+    margin-top: 20px;
+}
+.weather__extendedForecastItem{
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid lightgray;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    padding: 10px 0;
+
+}
+.weather__extendedForecastItem:last-child{
+    border-right: none;
+}
+.weather__extendedForecastItem >hgroup{
+    display: flex;
+    justify-content: space-between;
+    width: 40px;
+}
+.weather__extendedForecastItem>img{
+    width: 50px;
+}
+.weather__extendedForecast{
+    display: flex;
+    padding: 0;
+    list-style: none;
+    border-bottom: 1px solid lightgray;
+    margin-top: 0;
 }
