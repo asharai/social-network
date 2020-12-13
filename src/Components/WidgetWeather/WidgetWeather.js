@@ -4,7 +4,7 @@ import axios from '../../axios-weather';
 import * as weatherActions from '../../store/actions/Weather';
 import {kelvinToCelsii} from '../../store/reducers/Weather'
 import {connect} from 'react-redux';
-const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,weatherWeek}) => {
+const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,weatherWeek,celsii}) => {
     useEffect(()=>{
       axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=37.77&lon=-122.42&exclude=hourly,minutely&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>{
           onSetWeatherWeek(res.data.daily)
@@ -29,7 +29,7 @@ const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,we
             <li className="widgetWeather__forecastItem">
                 <span>{giveDay()}</span>
                 <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}/>
-                <span>{kelvinToCelsii(item.temp.day).toFixed()}<sup>o</sup></span>
+                <span>{kelvinToCelsii(item.temp.day,celsii).toFixed()}<sup>o</sup></span>
             </li>
         )
     }) : null;
@@ -61,7 +61,8 @@ const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,we
 };
 const mapStateToProps = state =>{
     return {
-        weatherWeek:state.weather.weatherWeek
+        weatherWeek:state.weather.weatherWeek,
+        celsii:state.weather.celsii
     }
 }
 const mapDispatchToProps = dispatch =>{

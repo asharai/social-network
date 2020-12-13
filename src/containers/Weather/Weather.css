@@ -30,20 +30,19 @@
     background-image: url('http://www.pngmart.com/files/5/City-PNG-Picture.png');
     background-position: 0 0;
     background-repeat: repeat-x;
-    animation: animatedBackground 10s linear infinite ;
-    -webkit-animation: animatedBackground 10s linear infinite;
+    animation: animatedBackground 60s linear infinite ;
+    -webkit-animation: animatedBackground 60s linear infinite;
     height: 100%;
-    background-size: 700px;
+    background-size: 800px;
    width: 100%;
     z-index: 1;
-
     position: absolute;
     top: 0;
 }
 
 @keyframes animatedBackground {
     from { background-position: 100% 100%; }
-    to { background-position: -98% 100%; }
+    to { background-position: -1200% 100%; }
 }
 .weather__headerContent{
     display: flex;

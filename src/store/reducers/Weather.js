@@ -1,10 +1,11 @@
 const initialState = {
     weather:{},
     weatherWeek:[],
+    celsii:true,
 
 };
-export const kelvinToCelsii = temp =>{
-    return temp - 273.5
+export const kelvinToCelsii = (temp,celsii=true) =>{
+    return celsii ? temp - 273.5 : (temp -273.5) * 9/5 + 32
 }
 const reducer = (state=initialState, action)=>{
     switch (action.type) {
@@ -15,10 +16,19 @@ const reducer = (state=initialState, action)=>{
 
             }
         case 'SET_WEATHER_WEEK':
-            return{
+            return {
                 ...state,
-                weatherWeek:action.weatherWeek
-            }
+                weatherWeek: action.weatherWeek
+    }
+                case 'SET_FARENHEIT':
+                    return {
+                    ...state,
+                    celsii:false}
+        case 'SET_CELSII':
+            return {
+                ...state,
+                celsii:true}
+
 
         default:
             return state;

@@ -10,3 +10,13 @@ export const setWeatherWeek = (weather)=>{
         weatherWeek:weather,
     }
 }
+export const setFarenheit = ()=>{
+    return{
+        type:'SET_FARENHEIT',
+    }
+}
+export const setCelsii = ()=>{
+    return{
+        type:'SET_CELSII',
+    }
+}
