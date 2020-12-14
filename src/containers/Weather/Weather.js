@@ -46,15 +46,15 @@ const Weather = ({onSetWeather,weather,weatherWeek,onSetFarenheit,onSetCelsii,ce
         const fullDays = ['Sunday ','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
         const giveDay= ()=> {
             let j = i - fullDays.length;
-            if (fullDays[date.getDay() + i + 1]) {
-                return fullDays[date.getDay() + i + 1]
-            } else {
-                return fullDays[date.getDay() + j + 1];
+            let newDay = new Date(date.getFullYear(),date.getMonth(),date.getDate()+i+1);
 
+            if (fullDays[date.getDay() + i + 1]) {
+                return `${fullDays[date.getDay() + i + 1]} ${newDay.getDate()}`
+            } else {
+                return `${fullDays[date.getDay() + j + 1]} ${newDay.getDate()}`;
             }
         }
         return (
-
             <li key={item.dt} className="weather__extendedForecastItem">
                 <h3>{i==0?'Tommorow': giveDay()}</h3>
                 <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}/>

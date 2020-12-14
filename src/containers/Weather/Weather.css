@@ -1,5 +1,5 @@
 .weather{
-    min-height: 100vh;
+
 
     padding-bottom: 40px;
     font-size: 14px;
@@ -30,8 +30,8 @@
     background-image: url('http://www.pngmart.com/files/5/City-PNG-Picture.png');
     background-position: 0 0;
     background-repeat: repeat-x;
-    animation: animatedBackground 60s linear infinite ;
-    -webkit-animation: animatedBackground 60s linear infinite;
+    animation: animatedBackground 120s linear infinite ;
+    -webkit-animation: animatedBackground 120s linear infinite;
     height: 100%;
     background-size: 800px;
    width: 100%;
@@ -102,7 +102,7 @@
     display: grid;
     align-self: center;
     grid-template-columns: 300px 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
 
    
 }
