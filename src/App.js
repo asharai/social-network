@@ -20,18 +20,20 @@ function App() {
            <Sidebar>
                <LeftMenu/>
            </Sidebar>
-           <Switch>
-               <Route  path="/social-network/home">
-                   <PersonInfo/>
-               </Route>
-           </Switch>
+
            <Sidebar right>
                <ChatMenu/>
            </Sidebar>
            <Chat/>
+           <Switch>
            <Route  path="/social-network/weather" exact>
                <Weather/>
            </Route>
+
+               <Route  path="/social-network">
+                   <PersonInfo/>
+               </Route>
+           </Switch>
        </div>
    </Router>
   );
