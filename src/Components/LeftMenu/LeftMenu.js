@@ -6,7 +6,7 @@ import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfie
 import MusicNoteIcon from "@material-ui/icons/MusicNote";
 import CloudIcon from "@material-ui/icons/Cloud";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
-import {Link} from 'react-router-dom'
+import {Link,NavLink} from 'react-router-dom'
 import './LeftMenu.css';
 const LeftMenu = () => {
     return (
@@ -16,8 +16,8 @@ const LeftMenu = () => {
             <li><a href=""  className="leftMenu__Link"><StarBorderIcon /></a></li>
             <li> <SentimentVerySatisfiedIcon /></li>
             <li><a href=""  className="leftMenu__Link"><MusicNoteIcon /></a></li>
-            <li><Link to="/social-network/weather"><CloudIcon /></Link></li>
-            <li><a href=""  className="leftMenu__Link"><CalendarTodayIcon /></a></li>
+            <li><NavLink to="/social-network/weather" className="leftMenu__Link"><CloudIcon /></NavLink></li>
+            <li><NavLink to="/social-network/calendar" className="leftMenu__Link"><CalendarTodayIcon /></NavLink></li>
 
         </ul>
     );

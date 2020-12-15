@@ -9,6 +9,7 @@ import LeftMenu from "./Components/LeftMenu/LeftMenu";
 import ChatMenu from "./Components/Chat/ChatMenu/ChatMenu";
 import Chat from "./Components/Chat/Chat";
 import Weather from "./containers/Weather/Weather";
+import Calendar from "./containers/Calendar/Calendar";
 
 
 function App() {
@@ -29,6 +30,9 @@ function App() {
            <Route  path="/social-network/weather" exact>
                <Weather/>
            </Route>
+               <Route  path="/social-network/calendar" exact>
+                   <Calendar/>
+               </Route>
 
                <Route  path="/social-network">
                    <PersonInfo/>

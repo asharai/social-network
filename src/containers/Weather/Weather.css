@@ -1,6 +1,4 @@
 .weather{
-
-
     padding-bottom: 40px;
     font-size: 14px;
     color: #fff;
@@ -8,15 +6,12 @@
     z-index: -12;
     display: flex;
     flex-direction: column;
-
-
 }
 .weather__header{
     padding-top:70px;
     height: 400px;
     padding-bottom: 20px;
     position: relative;
-
 }
 .weather__headerOverlay{
     width: 100%;
