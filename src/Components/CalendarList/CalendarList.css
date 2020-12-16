@@ -1,6 +1,7 @@
 .calendarList{
-    width: 400px;
+    width: 450px;
     margin-right: 40px;
+    background-color: #fff;
 }
 .calendarList__header{
     background-image: url('https://html.crumina.net/html-olympus/img/bg-event-day.jpg');
@@ -27,4 +28,13 @@
     padding: 0;
     color: lightgrey;
 
+}
+.calendarList__items{
+    list-style: none;
+    padding: 0;
+    padding-top: 20px;
+    margin-top: 0;
+    margin-left: 25px;
+
+    border-left: 1px solid lightgrey;
 }

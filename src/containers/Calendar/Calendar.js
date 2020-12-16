@@ -33,6 +33,7 @@ const Calendars = ({events}) => {
                         localizer={localizer}
                         events={events}
                         startAccessor="start"
+
                         endAccessor="end"
                         onView={() => {}}
                         date={new Date(Date.now())}

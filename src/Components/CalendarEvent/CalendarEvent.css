@@ -1,0 +1,9 @@
+.calendarEvent{
+    display: flex;
+    flex-direction: column;
+
+}
+.calendarEvent > h5{
+    padding: 0px 17px;
+    font-size: 13px;
+}
