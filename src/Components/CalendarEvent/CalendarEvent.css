@@ -1,9 +1,32 @@
 .calendarEvent{
     display: flex;
     flex-direction: column;
+    position: relative;
+
 
 }
 .calendarEvent > h5{
     padding: 0px 17px;
     font-size: 13px;
+    margin-bottom: 0;
+
+}
+.calendarEvent > h5::before{
+    content:' ';
+    width: 9px;
+    left: -7px;
+    height: 9px;
+    background-color: #fff;
+    border:2px solid #08ddc1;
+    border-radius: 50%;
+    position: absolute;
+}
+.calendarEvent__title{
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+.calendarEvent__text{
+    color: #888da8;
+    font-size: 12px;
+    line-height: 1.5;
 }

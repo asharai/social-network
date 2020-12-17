@@ -4,7 +4,7 @@ const initialState= {
              'start': new Date(2020, 11, 15,8),
              'end': new Date(2020, 11, 17),
             'allDay':false,
-            'description':'It is work',
+            'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Start work please'
         },
         {
@@ -13,6 +13,13 @@ const initialState= {
             'allDay':false,
             'description':'It is work',
             'title':'Test'
+        },
+        {
+            'start': new Date(2020, 11, 17,11),
+            'end': new Date(2020, 11, 17,12),
+            'allDay':false,
+            'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
+            'title':'Test Event'
         }
     ]
 }

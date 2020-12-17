@@ -11,11 +11,9 @@ import './LeftMenu.css';
 const LeftMenu = () => {
     return (
         <ul className="leftMenu">
-            <li><a href="" className="leftMenu__Link"><MenuIcon /></a></li>
-            <li><a href=""  className="leftMenu__Link"><BookmarkIcon /></a></li>
-            <li><a href=""  className="leftMenu__Link"><StarBorderIcon /></a></li>
-            <li> <SentimentVerySatisfiedIcon /></li>
-            <li><a href=""  className="leftMenu__Link"><MusicNoteIcon /></a></li>
+
+
+
             <li><NavLink to="/social-network/weather" className="leftMenu__Link"><CloudIcon /></NavLink></li>
             <li><NavLink to="/social-network/calendar" className="leftMenu__Link"><CalendarTodayIcon /></NavLink></li>
 

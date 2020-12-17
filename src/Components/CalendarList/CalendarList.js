@@ -6,7 +6,10 @@ import {formDate} from '../../store/reducers/Calendar';
 import moment from "moment";
 const CalendarList = ({events}) => {
     const fullDays = ['Sunday ','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const event = events.map(item=>{
+    const event = events.filter(item=>{
+
+        return moment(item.start).format('dd,MMMM,yyyy') === moment().format('dd,MMMM,yyyy')
+    }).map(item=>{
         return (
             <CalendarEvent
             time={`${formDate(item.start.getHours())}:${formDate(item.start.getMinutes())}`}
@@ -15,16 +18,17 @@ const CalendarList = ({events}) => {
             />
         )
     })
+    const contentEvents= event.length > 0  ?(    <ul className="calendarList__items">
+        {event}
+    </ul>) : <h1>No tasks for today</h1>
     return (
         <aside className="calendarList">
         <div className="calendarList__header">
             <h1>{moment().get('date')}</h1>
             <h2>{fullDays[moment().day()]}</h2>
-            <p>{`${moment().get('month')+1},${moment().get('year')}`}</p>
+            <p>{`${(moment()).format('MMMM')}, ${moment().get('year')}`}</p>
         </div>
-            <ul className="calendarList__items">
-                {event}
-            </ul>
+            {contentEvents}
         </aside>
     );
 };

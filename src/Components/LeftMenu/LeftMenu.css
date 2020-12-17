@@ -1,13 +1,15 @@
 .leftMenu{
-    height: 30%;
+    height:20%;
     list-style: none;
     padding: 0;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: space-evenly;
+
 }
 .leftMenu__Link{
     color: #9a9fbf;
+
 }
 .leftMenu__Link:hover{
     color:#ff5e3a;

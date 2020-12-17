@@ -1,7 +1,9 @@
 .calendarList{
     width: 450px;
     margin-right: 40px;
+    position: relative;
     background-color: #fff;
+    min-height: 600px;
 }
 .calendarList__header{
     background-image: url('https://html.crumina.net/html-olympus/img/bg-event-day.jpg');
