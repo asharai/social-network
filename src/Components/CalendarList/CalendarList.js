@@ -20,7 +20,7 @@ const CalendarList = ({events}) => {
     })
     const contentEvents= event.length > 0  ?(    <ul className="calendarList__items">
         {event}
-    </ul>) : <h1>No tasks for today</h1>
+    </ul>) : <h1 style={{textAlign:'center',paddingTop:'10px'}}>No tasks for today</h1>
     return (
         <aside className="calendarList">
         <div className="calendarList__header">

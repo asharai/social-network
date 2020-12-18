@@ -3,12 +3,22 @@ import './Calendar.css'
 import CalendarList from "../../Components/CalendarList/CalendarList";
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
-
 import moment from 'moment'
 import {connect} from 'react-redux'
-const Calendars = ({events}) => {
-    console.log(events)
-    const localizer = momentLocalizer(moment)
+import {Modal} from "@material-ui/core";
+import CreateCalendarEvent from "../../Components/CreateCalendarEvent/CreateCalendarEvent";
+import {makeStyles} from "@material-ui/core/styles";
+const Calendars = ({events,modalCalendar}) => {
+
+    const localizer = momentLocalizer(moment);
+    const useStyles = makeStyles({
+        root: {
+            display:'flex',
+            justifyContent:'center',
+            alignItems:'center'
+        },
+    });
+    const classes = useStyles();
     return (
         <div className="calendar">
             <header className="calendar__header">
@@ -34,18 +44,26 @@ const Calendars = ({events}) => {
                         events={events}
                         startAccessor="start"
                         endAccessor="end"
+                        step={60}
+                        length={0.5}
                         onView={() => {}}
-                        date={new Date(Date.now())}
+                        defaultDate={new Date(Date.now())}
+                        // onSelectEvent={(kj)=>alert(kj.title)}
                     />
 
                 </div>
             </div>
+            <Modal open={modalCalendar} className={classes.root}>
+                <CreateCalendarEvent/>
+            </Modal>
         </div>
     );
 };
 const mapStateToProps = state=>{
     return{
-        events:state.calendar.events
+        events:state.calendar.events,
+        modalCalendar:state.calendar.modalCalendar
     }
 }
+
 export default  connect(mapStateToProps,null)(Calendars);

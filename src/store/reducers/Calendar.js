@@ -15,13 +15,21 @@ const initialState= {
             'title':'Test'
         },
         {
-            'start': new Date(2020, 11, 17,11),
-            'end': new Date(2020, 11, 17,12),
+            'start': new Date(2020, 11, 17,7),
+            'end': new Date(2020, 11, 17,23),
             'allDay':false,
             'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Test Event'
+        },
+        {
+            'start': new Date(2020, 11, 19,4),
+            'end': new Date(2020, 11, 19,12),
+            'allDay':false,
+            'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
+            'title':'Really work'
         }
-    ]
+    ],
+    modalCalendar:true,
 }
 export const formDate = date =>{
     if(+date<10){
@@ -31,7 +39,11 @@ export const formDate = date =>{
 }
 const reducer = (state=initialState,action)=>{
     switch (action.type) {
-
+        case 'CLOSE_MODAL_CALENDAR':
+            return{
+                ...state,
+                modalCalendar:false
+            }
         default:
             return state;
     }

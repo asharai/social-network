@@ -1,0 +1,35 @@
+.createCalendarEvent{
+    width: 400px;
+    background-color: #fff;
+    height: 90%;
+    border-radius: 10px;
+    position: relative;
+    box-sizing: border-box;
+}
+.createCalendarEvent > h3{
+    border-bottom: 1px solid lightgrey;
+    padding: 15px 20px;
+}
+.createCalendarEvent__form{
+    height:90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 10px 20px;
+    box-sizing: border-box;
+}
+.createCalendarEvent__form >div{
+    display: flex;
+    justify-content: space-between;
+}
+.createCalendarEvent__btn{
+    background-color: #08ddc1;
+    border: none;
+    outline: none;
+    padding: 20px 0;
+    color: #fff;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
