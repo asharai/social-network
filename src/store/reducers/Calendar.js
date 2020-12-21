@@ -27,12 +27,13 @@ const initialState= {
             'allDay':false,
             'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Really work'
-        }
+        },
+
     ],
     modalCalendar:true,
 }
 export const formDate = date =>{
-    if(+date<10){
+    if(date.length<2){
         return '0' + date
     }
     return  date
@@ -43,6 +44,12 @@ const reducer = (state=initialState,action)=>{
             return{
                 ...state,
                 modalCalendar:false
+            }
+        case 'ADD_EVENT':
+            const newEvents = state.events.concat(action.event);
+            return{
+                ...state,
+                events:newEvents
             }
         default:
             return state;

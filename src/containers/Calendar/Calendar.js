@@ -53,7 +53,7 @@ const Calendars = ({events,modalCalendar}) => {
 
                 </div>
             </div>
-            <Modal open={modalCalendar} className={classes.root}>
+            <Modal open={modalCalendar} className={classes.root} disableScrollLock>
                 <CreateCalendarEvent/>
             </Modal>
         </div>

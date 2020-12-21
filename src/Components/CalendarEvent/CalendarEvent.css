@@ -9,6 +9,7 @@
     padding: 0px 17px;
     font-size: 13px;
     margin-bottom: 0;
+    z-index: 20;
 
 }
 .calendarEvent > h5::before{

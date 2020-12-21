@@ -12,7 +12,8 @@ const CalendarList = ({events}) => {
     }).map(item=>{
         return (
             <CalendarEvent
-            time={`${formDate(item.start.getHours())}:${formDate(item.start.getMinutes())}`}
+
+                time={`${formDate(moment(item.start).format("h"))}:${formDate(moment(item.start).format("mm"))}`}
             title={item.title}
             description={item.description}
             />
