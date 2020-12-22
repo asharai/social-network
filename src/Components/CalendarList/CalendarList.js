@@ -7,8 +7,8 @@ import moment from "moment";
 const CalendarList = ({events}) => {
     const fullDays = ['Sunday ','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
     const event = events.filter(item=>{
-
-        return moment(item.start).format('dd,MMMM,yyyy') === moment().format('dd,MMMM,yyyy')
+        console.log(moment(item.start).toDate())
+        return moment(item.start).format("MMM Do YY") === moment().format("MMM Do YY")
     }).map(item=>{
         return (
             <CalendarEvent

@@ -8,7 +8,9 @@ import {connect} from 'react-redux'
 import {Modal} from "@material-ui/core";
 import CreateCalendarEvent from "../../Components/CreateCalendarEvent/CreateCalendarEvent";
 import {makeStyles} from "@material-ui/core/styles";
-const Calendars = ({events,modalCalendar}) => {
+import FullEvent from "../../Components/FullEvent/FullEvent";
+import * as calendarActions from '../../store/actions/Calendar'
+const Calendars = ({events,modalCalendar,eventDescription,onOpenEvent}) => {
 
     const localizer = momentLocalizer(moment);
     const useStyles = makeStyles({
@@ -48,7 +50,7 @@ const Calendars = ({events,modalCalendar}) => {
                         length={0.5}
                         onView={() => {}}
                         defaultDate={new Date(Date.now())}
-                        // onSelectEvent={(kj)=>alert(kj.title)}
+                         onSelectEvent={(e)=>console.log(e)}
                     />
 
                 </div>
@@ -56,14 +58,22 @@ const Calendars = ({events,modalCalendar}) => {
             <Modal open={modalCalendar} className={classes.root} disableScrollLock>
                 <CreateCalendarEvent/>
             </Modal>
+            <Modal open={eventDescription} className={classes.root} disableScrollLock>
+            <FullEvent {...events[0]} />
+            </Modal>
         </div>
     );
 };
 const mapStateToProps = state=>{
     return{
         events:state.calendar.events,
-        modalCalendar:state.calendar.modalCalendar
+        modalCalendar:state.calendar.modalCalendar,
+        eventDescription:state.calendar.eventDescription
     }
 }
-
-export default  connect(mapStateToProps,null)(Calendars);
+const mapDispatchToProps = dispatch =>{
+    return{
+        onOpenEvent:()=>dispatch(calendarActions.openEvent())
+    }
+}
+export default  connect(mapStateToProps,mapDispatchToProps)(Calendars);
