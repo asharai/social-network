@@ -1,0 +1,32 @@
+.fullEvent{
+    background-color: #fff;
+
+    width: 700px;
+    border-radius: 10px;
+}
+.fullEvent__header{
+    display: flex;
+    align-items: center;
+    padding:10px 20px;
+}
+.fullEvent__header > img{
+    height: 40px;
+    margin-right: 20px;
+}
+.fullEvent >img{
+    height: 400px;
+    width:100%;
+
+}
+.fullEvent > article{
+    display: flex;
+    padding:10px 20px;
+}
+.fullEvent > article > ul{
+    list-style: none;
+}
+.fullEvent > article > p{
+    width: 70%;
+    border-right: 1px solid lightgrey;
+    padding-right: 15px;
+}

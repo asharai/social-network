@@ -10,7 +10,7 @@ import CreateCalendarEvent from "../../Components/CreateCalendarEvent/CreateCale
 import {makeStyles} from "@material-ui/core/styles";
 import FullEvent from "../../Components/FullEvent/FullEvent";
 import * as calendarActions from '../../store/actions/Calendar'
-const Calendars = ({events,modalCalendar,eventDescription,onOpenEvent}) => {
+const Calendars = ({events,modalCalendar,eventDescription,onOpenEvent,activeId}) => {
 
     const localizer = momentLocalizer(moment);
     const useStyles = makeStyles({
@@ -21,6 +21,7 @@ const Calendars = ({events,modalCalendar,eventDescription,onOpenEvent}) => {
         },
     });
     const classes = useStyles();
+    console.log({...events[activeId]})
     return (
         <div className="calendar">
             <header className="calendar__header">
@@ -50,7 +51,7 @@ const Calendars = ({events,modalCalendar,eventDescription,onOpenEvent}) => {
                         length={0.5}
                         onView={() => {}}
                         defaultDate={new Date(Date.now())}
-                         onSelectEvent={(e)=>console.log(e)}
+                         onSelectEvent={(e)=>onOpenEvent(e.id)}
                     />
 
                 </div>
@@ -59,7 +60,7 @@ const Calendars = ({events,modalCalendar,eventDescription,onOpenEvent}) => {
                 <CreateCalendarEvent/>
             </Modal>
             <Modal open={eventDescription} className={classes.root} disableScrollLock>
-            <FullEvent {...events[0]} />
+            <FullEvent {...events[activeId]} />
             </Modal>
         </div>
     );
@@ -68,12 +69,13 @@ const mapStateToProps = state=>{
     return{
         events:state.calendar.events,
         modalCalendar:state.calendar.modalCalendar,
-        eventDescription:state.calendar.eventDescription
+        eventDescription:state.calendar.eventDescription,
+        activeId:state.calendar.activeId
     }
 }
 const mapDispatchToProps = dispatch =>{
     return{
-        onOpenEvent:()=>dispatch(calendarActions.openEvent())
+        onOpenEvent:(id)=>dispatch(calendarActions.openEvent(id))
     }
 }
 export default  connect(mapStateToProps,mapDispatchToProps)(Calendars);
