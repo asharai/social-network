@@ -1,8 +1,8 @@
-
+const date = new Date(Date.now());
 const initialState= {
     events: [{
-             'start': new Date(2020, 11, 15,8),
-             'end': new Date(2020, 11, 17),
+        'start': new Date(date.getFullYear(), date.getMonth(), date.getDate(),5),
+        'end': new Date(date.getFullYear(), date.getMonth(), date.getDate()+1,14),
             'allDay':false,
             'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Start work please',
@@ -10,8 +10,8 @@ const initialState= {
             id:0
         },
         {
-            'start': new Date(2020, 11, 16,11),
-            'end': new Date(2020, 11, 16,12),
+            'start': new Date(date.getFullYear(), date.getMonth(), date.getDate(),6),
+            'end': new Date(date.getFullYear(), date.getMonth(), date.getDate(),9),
             'allDay':false,
             'description':'It is work',
             'title':'Test',
@@ -28,8 +28,8 @@ const initialState= {
             id:2,
         },
         {
-            'start': new Date(2020, 11, 19,4),
-            'end': new Date(2020, 11, 19,12),
+            'start': new Date(date.getFullYear(), date.getMonth(), date.getDate(),13),
+            'end': new Date(date.getFullYear(), date.getMonth(), date.getDate(),18),
             'allDay':false,
             'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Really work',

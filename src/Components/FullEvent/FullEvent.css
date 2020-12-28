@@ -1,6 +1,6 @@
 .fullEvent{
     background-color: #fff;
-
+    position: relative;
     width: 700px;
     border-radius: 10px;
 }

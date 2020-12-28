@@ -46,7 +46,7 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar}) => {
         onAddEventToCalendar(event);
 
     }
-    console.log(event.start.getDate())
+   
     return (
         <div className="createCalendarEvent ">
             <CloseIcon className={classes.close} onClick={()=>onCloseModalCalendar()}/>

@@ -1,10 +1,31 @@
 import React from 'react';
 import moment from "moment";
-import './FullEvent.css'
-const FullEvent = ({title,start,kind,description}) => {
+import './FullEvent.css';
+import CloseIcon from '@material-ui/icons/Close';
+import {makeStyles} from "@material-ui/core/styles";
+import {connect} from 'react-redux';
+import * as calendarActions from '../../store/actions/Calendar'
+const FullEvent = ({title,start,kind,description,onCloseFullEvent}) => {
+    const useStyles = makeStyles({
 
+        close:{
+            position:'absolute',
+            right:'-25px',
+            top:'-30px',
+            color:'lightgray',
+            fontSize:'30px',
+            cursor:'pointer',
+            transition:'all 0.3s',
+            '&:hover':{
+                color:'#ff5e3a'
+            }
+        }
+    });
+
+    const classes = useStyles();
     return (
         <div className="fullEvent">
+            <CloseIcon className={classes.close} onClick={()=>onCloseFullEvent()}/>
           <header className="fullEvent__header">
               <img src="https://html.crumina.net/html-olympus/img/avatar77-sm.jpg" alt=""/>
               <hgroup>
@@ -23,5 +44,9 @@ const FullEvent = ({title,start,kind,description}) => {
         </div>
     );
 };
-
-export default FullEvent;
+const mapDispatchToProps = dispatch=>{
+    return{
+        onCloseFullEvent:()=>dispatch(calendarActions.closeModalEvent())
+    }
+}
+export default connect(null,mapDispatchToProps)(FullEvent);
