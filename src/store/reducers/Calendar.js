@@ -7,6 +7,7 @@ const initialState= {
             'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Start work please',
             'kind':'Personal Event',
+            img:'https://www.talentcanada.ca/wp-content/uploads/2020/04/Remote-Work-Visual-Generation-Adobe-Stock.jpeg',
             id:0
         },
         {
@@ -16,6 +17,7 @@ const initialState= {
             'description':'It is work',
             'title':'Test',
             'kind':'Public Event',
+            img:'https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Test-Logo.svg/783px-Test-Logo.svg.png',
             id:1,
         },
         {
@@ -25,6 +27,7 @@ const initialState= {
             'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Test Event',
             'kind':'Personal Event',
+            img:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQpK3ZC2VWGrX0lU-Ikj0CUjT0ADi6Ic8C9dw&usqp=CAU',
             id:2,
         },
         {
@@ -34,6 +37,7 @@ const initialState= {
             'description':'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur cum deserunt distinctio eos, expedita libero maxime molestias natus non obcaecati officiis, provident quaerat quasi ratione sapiente sint totam. Porro, quas.',
             'title':'Really work',
             'kind':'Personal Event',
+            img:'https://www.citynews1130.com/wp-content/blogs.dir/sites/9/2018/06/22/iStock-910806154-e1529679582804.jpg',
             id:3,
         },
 
@@ -55,6 +59,11 @@ const reducer = (state=initialState,action)=>{
                 ...state,
                 modalCalendar:false
             }
+        case 'OPEN_MODAL_CALENDAR':
+            return{
+                ...state,
+                modalCalendar:true
+            }
         case 'CLOSE_MODAL_EVENT':
             return{
                 ...state,
@@ -64,6 +73,7 @@ const reducer = (state=initialState,action)=>{
             const newEvents = state.events.concat(action.event);
             return{
                 ...state,
+                modalCalendar: false,
                 events:newEvents
             }
         case 'OPEN_EVENT':

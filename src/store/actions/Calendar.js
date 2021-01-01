@@ -3,6 +3,11 @@ export const closeModalCalendar = ()=>{
         type:'CLOSE_MODAL_CALENDAR',
     }
 }
+export const openModalCalendar = ()=>{
+    return{
+        type:'OPEN_MODAL_CALENDAR',
+    }
+}
 export const closeModalEvent = ()=>{
     return{
         type:'CLOSE_MODAL_EVENT',

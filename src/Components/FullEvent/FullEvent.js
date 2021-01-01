@@ -5,7 +5,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import {makeStyles} from "@material-ui/core/styles";
 import {connect} from 'react-redux';
 import * as calendarActions from '../../store/actions/Calendar'
-const FullEvent = ({title,start,kind,description,onCloseFullEvent}) => {
+const FullEvent = ({title,start,kind,description,onCloseFullEvent,img}) => {
     const useStyles = makeStyles({
 
         close:{
@@ -30,10 +30,10 @@ const FullEvent = ({title,start,kind,description,onCloseFullEvent}) => {
               <img src="https://html.crumina.net/html-olympus/img/avatar77-sm.jpg" alt=""/>
               <hgroup>
                   <h1>{title}</h1>
-                  <h4>{moment(start).format('dddd')}</h4>
+                  <h4>{`${moment(start).format('dddd')} at ${moment(start).format('hh:mm')}`}</h4>
               </hgroup>
           </header>
-            <img src="https://images.unsplash.com/photo-1601174375954-a5e48aea8531?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1351&q=80" alt=""/>
+            <img src={img?img:'https://lh3.googleusercontent.com/proxy/2-aTJa9-qAvmE2jxUAk8lxNL_yfSmrRyHkhiGpiesRo9Z7qV1Gyb0JeeCcE_XO_rFOt3z4_GY6qRlzazdrqD-XSQDXfeZ7hh2v4veA4e1du6NedZEoEgdgNXTiW5VYupB-foYho'} alt=""/>
             <article>
                 <p className="fullEvent__description">{description}</p>
                 <ul>

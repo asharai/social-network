@@ -15,7 +15,7 @@ import {
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
-const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar}) => {
+const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events}) => {
     const [selectedDate, setSelectedDate] = useState(Date.now());
     const useStyles = makeStyles({
 
@@ -38,6 +38,7 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar}) => {
    const [event,setEvent]=useState({'kind':'','title':'',allDay:false,
        'start': moment(selectedDate?._d).toDate(),
        'end':moment(selectedDate?._d).toDate(),
+       'id':events[events.length-1].id+1,
        'description':'',location:''});
 
 
@@ -107,16 +108,22 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar}) => {
                 value={event.description}
                 onChange={(e)=>setEvent({...event,description:e.target.value})}
                 variant="outlined"
+
             />
             <button className="createCalendarEvent__btn">Create Event</button>
         </form>
         </div>
     );
 };
+const mapStateToProps = state =>{
+    return{
+        events:state.calendar.events,
+    }
+}
 const mapDispatchToProps = dispatch =>{
     return{
         onCloseModalCalendar:()=>dispatch(calendarActions.closeModalCalendar()),
         onAddEventToCalendar:(event)=>dispatch(calendarActions.addEventToCalendar(event))
     }
 }
-export default connect(null,mapDispatchToProps)(CreateCalendarEvent);
+export default connect(mapStateToProps,mapDispatchToProps)(CreateCalendarEvent);
