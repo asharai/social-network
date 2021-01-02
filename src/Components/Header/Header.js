@@ -27,7 +27,7 @@ const Header = () => {
         <input type="search" placeholder="Search here people..." className="header__search"/>
         <div className="header__iconsBlock">
             <i>2</i>
-            <i>3</i>
+            <i>4</i>
             <i>1</i>
         </div>
             <div className="header__profileInfo">
