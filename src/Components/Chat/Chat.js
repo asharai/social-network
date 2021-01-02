@@ -9,19 +9,19 @@ import {getMessageTime} from '../../store/reducers/Chat'
 const Chat = ({chat,open,id,friends,onCloseChat}) => {
     const idx = (id,arr)=>{
         return arr.findIndex(item=>{
-            return item.id == id
+            return item.id === id
         })
     }
 
 
     const messages = chat[idx(id,chat)].messages.map((item,i)=>{
         return (
-            <li className={item.profile==160? 'chat_personMessage chat__message' : 'chat__message'}>
+            <li key={Math.round(Math.random()*20) +i} className={item.profile==160? 'chat_personMessage chat__message' : 'chat__message'}>
 
                 {
-                 i>0 &&  chat[idx(id,chat)].messages[i-1].profile==item.profile ?
+                 i>0 &&  chat[idx(id,chat)].messages[i-1].profile===item.profile ?
                      <span className="chat__messageImg"></span> :
-                     <img src={item.profile==160? 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png' : friends[idx(item.profile,friends)].avatarImg} className="chat__messageImg" alt=""/>
+                     <img src={item.profile===160? 'https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png' : friends[idx(item.profile,friends)].avatarImg} className="chat__messageImg" alt=""/>
                 }
                 <article>
                     <p className="chat__messageText">{item.text}</p>

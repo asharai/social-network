@@ -12,6 +12,7 @@ import FormControl from "@material-ui/core/FormControl";
 import { makeStyles } from '@material-ui/core/styles';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
+import moment from 'moment';
 
 const Weather = ({onSetWeather,weather,weatherWeek,onSetFarenheit,onSetCelsii,celsii}) => {
   useEffect(()=>{
@@ -42,17 +43,8 @@ const Weather = ({onSetWeather,weather,weatherWeek,onSetFarenheit,onSetCelsii,ce
         setState({ ...state, [event.target.name]: event.target.checked });
     };
     const weatherWeekItem = weatherWeek.map((item,i)=>{
-        const date = new Date(Date.now());
-        const fullDays = ['Sunday ','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
         const giveDay= ()=> {
-            let j = i - fullDays.length;
-            let newDay = new Date(date.getFullYear(),date.getMonth(),date.getDate()+i+1);
-
-            if (fullDays[date.getDay() + i + 1]) {
-                return `${fullDays[date.getDay() + i + 1]} ${newDay.getDate()}`
-            } else {
-                return `${fullDays[date.getDay() + j + 1]} ${newDay.getDate()}`;
-            }
+            return moment().add(i,'day').format('dddd D')
         }
         return (
             <li key={item.dt} className="weather__extendedForecastItem">

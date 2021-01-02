@@ -27,12 +27,12 @@ const CalendarList = ({events,openModalCalendar}) => {
 
     const classes = useStyles();
     const event = events.filter(item=>{
-        console.log(moment(item.start).toDate())
+
         return moment(item.start).format("MMM Do YY") === moment().format("MMM Do YY")
-    }).map(item=>{
+    }).map((item,i)=>{
         return (
             <CalendarEvent
-
+                key={i}
                 time={`${formDate(moment(item.start).format("h"))}:${formDate(moment(item.start).format("mm"))}`}
             title={item.title}
             description={item.description}

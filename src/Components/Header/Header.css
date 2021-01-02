@@ -56,7 +56,8 @@ padding: 0;
     flex-grow: 0.4;
 }
 .header__pageName{
-    flex-basis: 100px;
+    flex-basis: 120px;
+    text-transform: uppercase;
 
 }
 .header__iconsBlock{

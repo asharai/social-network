@@ -21,7 +21,7 @@ const Calendars = ({events,modalCalendar,eventDescription,onOpenEvent,activeId})
         },
     });
     const classes = useStyles();
-    console.log({...events[activeId]})
+
     return (
         <div className="calendar">
             <header className="calendar__header">

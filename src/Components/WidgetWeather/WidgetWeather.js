@@ -4,29 +4,19 @@ import axios from '../../axios-weather';
 import * as weatherActions from '../../store/actions/Weather';
 import {kelvinToCelsii} from '../../store/reducers/Weather'
 import {connect} from 'react-redux';
+import moment from "moment";
 const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,weatherWeek,celsii}) => {
     useEffect(()=>{
       axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=37.77&lon=-122.42&exclude=hourly,minutely&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>{
           onSetWeatherWeek(res.data.daily)
       }).catch(err=>console.log(err))
     },[]);
-    console.log(weatherWeek)
-    let date = new Date (Date.now());
-    const fullDays = ['Sunday ','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
-    const fullMonth = [ "January","February","March","April","May","June","July","August","September","October","November" ,"December"]
-    const days = ['SUN','MON','TUE','WED','THU','FRI','SAT'];
     const forecastItem = weatherWeek? weatherWeek.map((item,i)=>{
         const giveDay= ()=> {
-            let j = i - days.length;
-            if (days[date.getDay() + i + 1]) {
-                return days[date.getDay() + i + 1]
-            } else {
-                return days[date.getDay() + j + 1];
-
-            }
+            return moment().add(i,'day').format('ddd')
         }
         return (
-            <li className="widgetWeather__forecastItem">
+            <li className="widgetWeather__forecastItem" key={i}>
                 <span>{giveDay()}</span>
                 <img src={`http://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`}/>
                 <span>{kelvinToCelsii(item.temp.day,celsii).toFixed()}<sup>o</sup></span>
@@ -50,7 +40,7 @@ const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,we
                   <ul className="widgetWeather__forecast">
                     {forecastItem}
                   </ul>
-                    <p className="widgetWeather__day">{`${fullDays[date.getDay()]}, ${fullMonth[date.getMonth()]} ${date.getDate()}th`}</p>
+                    <p className="widgetWeather__day">{`${moment().format('dddd, MMMM D')}th`}</p>
                     <p>San Francisco,CA</p>
                 </div>
 
