@@ -4,7 +4,7 @@ const initialState = {
             id:1,
             name:'John Ray',
             avatarImg:'https://images.unsplash.com/photo-1603893661066-ad3a9cca25ce?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60',
-            status:'ONLINE',
+            status:'BUSY',
             messages:[
                 {
                     id:0,
@@ -48,7 +48,7 @@ const initialState = {
             id:2,
             name:'Nicholas Grissom',
             avatarImg:'https://images.unsplash.com/photo-1604186838309-c6715f0d3e6c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=635&q=80',
-            status:'ONLINE',
+            status:'AWAY',
             messages:[
                 {
                     id:0,
@@ -71,7 +71,7 @@ const initialState = {
             id:3,
             name:'Mark Valentine',
             avatarImg:'https://images.unsplash.com/photo-1564004999843-525a5c4d07c5?ixlib=rb-1.2.1&auto=format&fit=crop&w=701&q=80',
-            status:'ONLINE',
+            status:'INVISIBLE',
             messages:[
                 {
                     id:0,
@@ -98,7 +98,7 @@ const initialState = {
         {
             id:4,
             name:'Chris Greyson',
-            status:'ONLINE',
+            status:'BUSY',
             avatarImg:'https://images.unsplash.com/photo-1603672546308-a17e61918d47?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
             messages:[
                 {
@@ -236,7 +236,7 @@ const initialState = {
         {
             id:9,
             name:'Mike Adams',
-            status:'ONLINE',
+            status:'AWAY',
             messages:[
                 {
                     id:0,
@@ -264,7 +264,7 @@ const initialState = {
         {
             id:10,
             name:'John Doe',
-            status:'ONLINE',
+            status:'BUSY',
             messages:[
                 {
                     id:0,
@@ -294,6 +294,24 @@ const initialState = {
     chatOpen:false,
     idChat:1
 
+}
+export const getStatus = (status)=>{
+    switch (status) {
+        case 'ONLINE':
+            return '#32e4cd';
+             break;
+        case 'AWAY':
+            return '#ffd52f';
+            break;
+        case 'BUSY':
+            return '#ff4f60';
+            break;
+        case 'INVISIBLE':
+            return '#cbdfee';
+            break;
+        default:
+            return '#cbdfee';
+    }
 }
 const arrMonth = ['January','February','March','April','May','June','July','August','September','October','November','December']
 export const getMessageTime = date =>{

@@ -10,3 +10,8 @@
 .right{
     right:0;
 }
+@media all and (max-width: 800px){
+ .sidebar{
+     display: none;
+ }
+}

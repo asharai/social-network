@@ -1,6 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import MenuIcon from '@material-ui/icons/Menu';
+import {getStatus} from "../../../store/reducers/Chat";
 import * as chatActions from '../../../store/actions/Chat'
 import './ChatMenu.css';
 const ChatMenu = ({chat,onOpenChat}) => {
@@ -8,7 +8,7 @@ const ChatMenu = ({chat,onOpenChat}) => {
         return (
             <li key={item.id} className="chatMenu__item" onClick={()=>onOpenChat(item.id)}>
                 <img src={item.avatarImg} alt="" className="chatMenu__img"/>
-                <span className="chatMenu__status"></span>
+                <span className="chatMenu__status" style={{backgroundColor:getStatus(item.status)}}></span>
             </li>
         )
     })
@@ -17,7 +17,7 @@ const ChatMenu = ({chat,onOpenChat}) => {
           <ul className="chatMenu__list">
               {chatFriends}
           </ul>
-        <MenuIcon style={{fontSize:'40px',cursor:'pointer'}}/>
+
       </aside>
     );
 };

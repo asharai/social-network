@@ -6,7 +6,7 @@ import {connect} from "react-redux";
 const SongList = ({audio}) => {
     let song = audio.map((item,i)=>{
         return (
-            <Song id={item.id} idx={i+1} img={item.img} title={item.title} group={item.group} duration={item.duration}/>
+            <Song id={item.id} idx={i+1} key={i+1} img={item.img} title={item.title} group={item.group} duration={item.duration}/>
         )
     })
     return (

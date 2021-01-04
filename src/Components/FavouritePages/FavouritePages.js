@@ -31,7 +31,7 @@ const FavouritePages = () => {
     ]
     let page = pages.map(item=>{
         return (
-            <FavouritePage id={item.id} img={item.img} title={item.title} group={item.description} />
+            <FavouritePage id={item.id} key={item.id} img={item.img} title={item.title} group={item.description} />
         )
     })
     return (

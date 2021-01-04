@@ -54,7 +54,7 @@ audio.current.currentTime = compute;
             </div>
             <div className="progressb">
                 <span className="currentT">{fmtMss(cur.toFixed())}</span>
-                <input type="range"  title='' onChange={handleProgress} autocomplete="off" value={(cur)*100/dur} name="progressbar"/>
+                <input type="range"  title='' onChange={handleProgress} autoComplete="off" value={(cur)*100/dur} name="progressbar"/>
                 <span className="totalT">{fmtMss(dur.toFixed())}</span>
             </div>
             <div className="volumeBar">

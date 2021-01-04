@@ -24,3 +24,9 @@
     border-radius: 50%;
     background-color: #32e4cd;
 }
+@media all and (max-width: 1200px){
+    .personAvatar >hgroup{
+        display: none;
+
+    }
+}

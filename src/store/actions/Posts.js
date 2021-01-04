@@ -67,7 +67,7 @@ export const getPosts = ()=>{
                 for(let key in response.data){
                     for(let k in response.data[key].comments){
                     fetchedComments.push(response.data[key].comments[k])
-                        console.log(fetchedComments)
+
                     }
 
                     fetchedOrders.push({...response.data[key]})
@@ -80,7 +80,7 @@ export const getPosts = ()=>{
                     }
                     item.comments = arr;
                 })
-                console.log(fetchedOrders)
+
                 dispatch(setPosts(fetchedOrders))
             })
             .catch(error => {

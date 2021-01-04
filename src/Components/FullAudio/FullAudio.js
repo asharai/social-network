@@ -10,7 +10,7 @@ import CloseIcon from '@material-ui/icons/Close';
 const FullAudio = ({audio,onSetAudioModal,modalAudioOpen}) => {
     const audios=audio.map(item=>{
         return (
-            <AudioItem {...item}/>
+            <AudioItem {...item} key={item.id}/>
         )
     })
     return (

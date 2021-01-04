@@ -17,6 +17,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
     },[])
     let time = getPostTime(date);
     const likesToPost = ()=>{
+
       return  liked ===true ? onRemoveLike(idx,likes):onSwitchLikes(idx,likes)
     }
     const likesToPhoto = ()=>{
@@ -24,7 +25,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
     }
     return (
 
-        <article className={newPost ? 'post newPostItem' : "post"} key={idx}>
+        <article className={newPost ? 'post newPostItem' : "post"}  key={idx}>
             <div className="post__container">
             <div className="post__info">
                 <div className="post__infoPerson">
@@ -39,8 +40,8 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
                     <MoreHorizIcon   />
                     <div className="descr">
                         <ul>
-                            <li className="post__descrLink">Edit post</li>
-                            <li className="post__descrLink" onClick={()=>onDeletePost(idx)}>Delete post</li>
+
+                            <li key="1" className="post__descrLink" onClick={()=>onDeletePost(idx)}>Delete post</li>
 
                         </ul>
                     </div>
@@ -54,7 +55,6 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
                     <a className="post___feedShare__count post__feedItem" onClick={()=>setOpenComments(!openComments)}> <MessageIcon/> <span>{commentsCount}</span> </a>
                     <a className="post___feedShare__count post__feedItem" > <ReplyIcon/>    <span>{shares}</span> </a>
                 </div>
-
             </div>
             </div>
             <Comments open={openComments} imageComment={imageComment} idx={idx}/>

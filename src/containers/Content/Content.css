@@ -2,6 +2,7 @@
 
     display: grid;
     width: 70%;
+    min-width: 1200px;
     grid-gap: 50px;
     grid-template-columns: 1fr 2fr 1fr;
 }
@@ -22,4 +23,29 @@ height: 85px;
     /*display: flex;*/
     /*flex-direction: column;*/
     /*justify-content: space-between;*/
+}
+@media all and (max-width: 1365px){
+    .content{
+        min-width:950px;
+        width: 80%;
+    }
+}
+@media all and (max-width: 1200px){
+    .content{
+        min-width:0px;
+        width: 80%;
+        grid-template-columns:1fr;
+
+    }
+    .content__list > .sideContainer{
+        display: none;
+    }
+}
+@media all and (max-width: 800px){
+    .content{
+        width: 95%;
+        max-width: 620px;
+
+    }
+
 }
