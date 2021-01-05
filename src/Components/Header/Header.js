@@ -1,9 +1,16 @@
 import React from 'react';
 import './Header.css';
-import {Link, useLocation} from 'react-router-dom'
-
+import {Link, useLocation} from 'react-router-dom';
+import {connect} from 'react-redux';
+import MoodIcon from '@material-ui/icons/Mood';
+import ChatIcon from '@material-ui/icons/Chat';
 import PersonAvatar from "../PersonAvatar/PersonAvatar";
-const Header = () => {
+import SearchIcon from '@material-ui/icons/Search';
+import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
+import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
+import * as chatActions from '../../store/actions/Chat'
+const Header = ({openChatMenu,onToggleChatMenu}) => {
     let location = useLocation().pathname;
     const pageName= ()=>{
         if(location.indexOf('weather')!=-1){
@@ -34,8 +41,32 @@ const Header = () => {
              <PersonAvatar time={"Space Cowboy"}/>
             </div>
         </nav>
+            <nav className="header__mobileMenu">
+                <div className="header__menuLogo" >
+                <img src="https://html.crumina.net/html-olympus/img/logo.png" alt="" />
+                </div>
+                <MoodIcon/>
+                <ChatIcon/>
+                <NotificationsNoneIcon/>
+                <SearchIcon/>
+                <div className="header__menuLogo" >
+                    {openChatMenu ?   <CloseIcon onClick={()=>onToggleChatMenu()}/> :      <MenuIcon onClick={()=>onToggleChatMenu()}/>}
+
+
+                </div>
+            </nav>
         </header>
     );
 };
+const mapStateToProps = state =>{
+    return{
+        openChatMenu:state.chat.mobileChat
+    }
+}
+const mapDispatchToProps = dispatch =>{
+    return{
+    onToggleChatMenu:()=>dispatch(chatActions.toggleMobileChat())
+    }
+}
 
-export default Header;
+export default connect(mapStateToProps,mapDispatchToProps)(Header);

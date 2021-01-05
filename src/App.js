@@ -10,6 +10,7 @@ import ChatMenu from "./Components/Chat/ChatMenu/ChatMenu";
 import Chat from "./Components/Chat/Chat";
 import Weather from "./containers/Weather/Weather";
 import Calendar from "./containers/Calendar/Calendar";
+import MobileChatMenu from "./Components/Chat/MobileChatMenu/MobileChatMenu";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
                <ChatMenu/>
            </Sidebar>
            <Chat/>
+           <MobileChatMenu/>
            <Switch>
            <Route  path="/social-network/weather" exact>
                <Weather/>

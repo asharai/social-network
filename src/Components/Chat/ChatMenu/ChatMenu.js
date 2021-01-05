@@ -1,7 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {getStatus} from "../../../store/reducers/Chat";
-import * as chatActions from '../../../store/actions/Chat'
+import * as chatActions from '../../../store/actions/Chat';
 import './ChatMenu.css';
 const ChatMenu = ({chat,onOpenChat}) => {
     let chatFriends = chat.map((item)=>{

@@ -292,7 +292,8 @@ const initialState = {
 
     ],
     chatOpen:false,
-    idChat:1
+    idChat:1,
+    mobileChat:false
 
 }
 export const getStatus = (status)=>{
@@ -349,6 +350,11 @@ const reducer = (state=initialState,action)=>{
             return{
                 ...state,
                 chat: newChat
+            }
+        case 'TOGGLE_MOBILE_CHAT':
+            return  {
+                ...state,
+                mobileChat: !state.mobileChat
             }
         default:
             return state;

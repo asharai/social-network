@@ -16,3 +16,8 @@ export const addMessage =(id,message)=>{
         message:message
     }
 }
+export const toggleMobileChat =()=>{
+    return{
+        type:'TOGGLE_MOBILE_CHAT',
+    }
+}
