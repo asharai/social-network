@@ -7,7 +7,7 @@ const PersonAvatar = ({time,img,status}) => {
             <span className="post__status"></span>
             <hgroup>
                 <h4 className="personAvatar__name">John Doe</h4>
-                <h6 className="personAvatar__date">{time}</h6>
+                <h6 className="personAvatar__date">{time ? time : 'Space Cowboy'}</h6>
             </hgroup>
 
         </div>

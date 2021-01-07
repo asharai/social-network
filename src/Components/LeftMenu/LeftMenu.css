@@ -9,8 +9,16 @@
 }
 .leftMenu__Link{
     color: #9a9fbf;
+    text-decoration: none;
 
 }
 .leftMenu__Link:hover{
     color:#ff5e3a;
+}
+@media all and (max-width: 800px){
+    .leftMenu__Link{
+        display: flex;
+        cursor: pointer;
+        align-items: center;
+    }
 }

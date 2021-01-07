@@ -43,7 +43,7 @@
 .header__menuLogo >img{
 object-fit: contain;
 padding: 0;
-    margin: 0;
+margin: 0;
 }
 .header__search{
     background:#515365;;
@@ -81,4 +81,5 @@ padding: 0;
 
         box-sizing: border-box;
     }
+
 }
