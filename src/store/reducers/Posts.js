@@ -1,6 +1,6 @@
 const initialState = {
    posts:[],
-  
+   menuOpen:false
 };
 export const getPostTime = date =>{
     let data =((Date.now()- new Date(date)) / (60*1000)).toFixed();
@@ -90,6 +90,11 @@ const reducer = (state=initialState, action)=>{
             return{
                 ...state,
                 posts: newPostWithCommentUnLike
+            }
+        case 'TOGGLE_MOBILE_MENU_NAV':
+            return {
+                ...state,
+                menuOpen:!state.menuOpen
             }
 
         default:

@@ -86,3 +86,8 @@ overflow-y: auto;
 .chat__messageTime{
     font-size: 10px;
 }
+@media all and (max-width: 800px) {
+    .active{
+        right:0px;
+    }
+}

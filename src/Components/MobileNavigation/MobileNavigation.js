@@ -6,7 +6,9 @@ import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import { makeStyles } from '@material-ui/core/styles';
 import CloseIcon from '@material-ui/icons/Close';
 import './MobileNavigation.css';
-const MobileNavigation = () => {
+import {connect} from 'react-redux';
+import * as postActions from '../../store/actions/Posts'
+const MobileNavigation = ({menuOpen,onToggleMobileMenuNav}) => {
     const useStyles = makeStyles({
      icon:{
          marginRight:'20px',
@@ -34,8 +36,8 @@ const MobileNavigation = () => {
     });
     const classes = useStyles();
     return (
-        <aside className="mobileNavigation">
-          <Link to="/social-network" className={classes.logo}  >
+        <aside className={menuOpen ? "mobileNavigation": "mobileNavigation MobileNavigation__inactive" }>
+          <Link to="/social-network" className={classes.logo}  onClick={()=>onToggleMobileMenuNav()}>
             <img src="https://html.crumina.net/html-olympus/img/logo.png" className={classes.img} alt="" />
            Olympus
         </Link>
@@ -43,12 +45,21 @@ const MobileNavigation = () => {
             <p className="mobileNavigation__subtitle">Main Sections</p>
            <ul className="mobileNavigation__list">
 
-               <li className="leftMenu__Link"><CloseIcon className={classes.icon}/>Collapse Menu</li>
-               <li><NavLink to="/social-network/weather" className="leftMenu__Link"><CloudIcon className={classes.icon} />Weather App</NavLink> </li>
-               <li><NavLink to="/social-network/calendar" className="leftMenu__Link"><CalendarTodayIcon className={classes.icon} /> Calendar and events</NavLink> </li>
+               <li className="leftMenu__Link" onClick={()=>onToggleMobileMenuNav()}><CloseIcon className={classes.icon}/>Collapse Menu</li>
+               <li onClick={()=>onToggleMobileMenuNav()}><NavLink to="/social-network/weather" className="leftMenu__Link"><CloudIcon className={classes.icon} />Weather App</NavLink> </li>
+               <li onClick={()=>onToggleMobileMenuNav()}><NavLink to="/social-network/calendar" className="leftMenu__Link"><CalendarTodayIcon className={classes.icon} /> Calendar and events</NavLink> </li>
            </ul>
         </aside>
     );
 };
-
-export default MobileNavigation;
+const mapStateToProps=state=>{
+    return{
+        menuOpen:state.posts.menuOpen
+    }
+}
+const mapDispatchToProps = dispatch =>{
+    return {
+        onToggleMobileMenuNav:()=>dispatch(postActions.toggleMobileMenuNav())
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(MobileNavigation);

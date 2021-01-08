@@ -178,3 +178,8 @@ export const unlikeComment = (id,idComment,likes) =>{
 
     }
 }
+export const toggleMobileMenuNav =()=>{
+    return {
+        type:'TOGGLE_MOBILE_MENU_NAV'
+    }
+}

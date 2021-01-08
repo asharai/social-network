@@ -10,7 +10,8 @@ import NotificationsNoneIcon from '@material-ui/icons/NotificationsNone';
 import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import * as chatActions from '../../store/actions/Chat'
-const Header = ({openChatMenu,onToggleChatMenu}) => {
+import * as postActions from "../../store/actions/Posts";
+const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen}) => {
     let location = useLocation().pathname;
     const pageName= ()=>{
         if(location.indexOf('weather')!=-1){
@@ -32,25 +33,19 @@ const Header = ({openChatMenu,onToggleChatMenu}) => {
         </Link>
          <p className="header__pageName">{pageName()}</p>
         <input type="search" placeholder="Search here people..." className="header__search"/>
-        <div className="header__iconsBlock">
-            <i>2</i>
-            <i>4</i>
-            <i>1</i>
-        </div>
+
             <div className="header__profileInfo">
              <PersonAvatar time={"Space Cowboy"}/>
             </div>
         </nav>
             <nav className="header__mobileMenu">
-                <div className="header__menuLogo" >
+                <div className= {menuOpen ? "header__menuLogo header__menuLogo-burger" :'header__menuLogo' } onClick={()=>onToggleMobileMenuNav()}>
                 <img src="https://html.crumina.net/html-olympus/img/logo.png" alt="" />
                 </div>
-                <MoodIcon/>
-                <ChatIcon/>
-                <NotificationsNoneIcon/>
-                <SearchIcon/>
-                <div className="header__menuLogo" >
-                    {openChatMenu ?   <CloseIcon onClick={()=>onToggleChatMenu()}/> :      <MenuIcon onClick={()=>onToggleChatMenu()}/>}
+
+
+                <div className="header__menuLogo" onClick={()=>onToggleChatMenu()} >
+                    {openChatMenu ?   <CloseIcon /> :      <MenuIcon />}
 
 
                 </div>
@@ -60,12 +55,14 @@ const Header = ({openChatMenu,onToggleChatMenu}) => {
 };
 const mapStateToProps = state =>{
     return{
-        openChatMenu:state.chat.mobileChat
+        openChatMenu:state.chat.mobileChat,
+        menuOpen:state.posts.menuOpen
     }
 }
 const mapDispatchToProps = dispatch =>{
     return{
-    onToggleChatMenu:()=>dispatch(chatActions.toggleMobileChat())
+          onToggleChatMenu:()=>dispatch(chatActions.toggleMobileChat()),
+        onToggleMobileMenuNav:()=>dispatch(postActions.toggleMobileMenuNav())
     }
 }
 
