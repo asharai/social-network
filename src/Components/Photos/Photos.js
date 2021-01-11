@@ -17,6 +17,7 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg,addLiketoImg,remove
             outline:'none',
            display:'flex',
             justifyContent:'center',
+
         },
         arrows:{
             color:'white',

@@ -5,5 +5,29 @@
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
     grid-template-rows: repeat(2,1fr);
     grid-gap: 10px;
+    min-width: 1200px;
+
+}
+@media all and (max-width: 1365px){
+    .videos{
+        min-width:950px;
+        width: 80%;
+    }
+}
+@media all and (max-width: 1200px){
+    .videos{
+        min-width:0px;
+        width: 80%;
+
+
+    }
+
+}
+@media all and (max-width: 800px){
+    .videos{
+        width: 95%;
+        max-width: 620px;
+
+    }
 
 }

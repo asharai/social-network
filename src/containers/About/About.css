@@ -5,13 +5,31 @@
     grid-template-rows: 1fr;
     grid-gap: 50px;
     font-size: 14px;
+    min-width: 1200px;
 }
 .about__container{
     display: grid;
 
 }
-@media all and (max-width: 1168px) {
+@media all and (max-width: 1365px){
+    .about{
+        min-width:950px;
+        width: 80%;
+    }
+}
+@media all and (max-width: 1200px) {
     .about{
         grid-template-columns: 1fr;
+        width: 80%;
+        min-width:0;
     }
+
+}
+@media all and (max-width: 800px){
+    .about{
+        width: 95%;
+        max-width: 620px;
+
+    }
+
 }

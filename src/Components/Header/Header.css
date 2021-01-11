@@ -84,7 +84,7 @@ margin: 0;
         box-sizing: border-box;
     }
     .header__menuLogo-burger{
-        transition: all 0.5s;
-     transform: translateX(-100px);
+        transition: all 0.7s;
+     transform: translateX(-250px);
     }
 }
