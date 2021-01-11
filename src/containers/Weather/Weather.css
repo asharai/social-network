@@ -108,7 +108,8 @@
 }
 
 .weather__settings{
-    width: 900px;
+   width: 900px;
+
     background-color: #fff;
     margin-left: 50px;
     height: 200px;
@@ -166,4 +167,10 @@
     list-style: none;
     border-bottom: 1px solid lightgray;
     margin-top: 0;
+
+}
+@media all and (max-width: 1460px){
+    .weather__settings{
+        width: 700px;
+    }
 }
