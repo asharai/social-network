@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './Header.css';
 import {Link, useLocation} from 'react-router-dom';
 import {connect} from 'react-redux';
@@ -11,7 +11,8 @@ import MenuIcon from '@material-ui/icons/Menu';
 import CloseIcon from '@material-ui/icons/Close';
 import * as chatActions from '../../store/actions/Chat'
 import * as postActions from "../../store/actions/Posts";
-const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen}) => {
+import FindFriend from "../FindFriend/FindFriend";
+const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen,findFriends}) => {
     let location = useLocation().pathname;
     const pageName= ()=>{
         if(location.indexOf('weather')!=-1){
@@ -24,6 +25,14 @@ const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen}) 
             return 'Profile Page'
         }
     }
+    const [text,setText]=useState('');
+    const searchFriends = findFriends.filter(item=>{
+        return item.name.toLowerCase().indexOf(text.toLowerCase())!=-1
+    }).map(item=>{
+        return (
+            <FindFriend idx={item.id} img={item.img} name={item.name} count={item.commonFriends} />
+        )
+    })
 
     return (
         <header className="header">
@@ -32,7 +41,15 @@ const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen}) 
             <img src="https://html.crumina.net/html-olympus/img/logo.png" alt="" />
         </Link>
          <p className="header__pageName">{pageName()}</p>
-        <input type="search" placeholder="Search here people..." className="header__search"/>
+
+            <div className="header__searhContainer">
+                <input type="search" placeholder="Search here people..." value={text} onChange={(e)=>setText(e.target.value)} className="header__search"/>
+
+                <div className="header__searchContent">
+                    {searchFriends}
+                </div>
+
+            </div>
 
             <div className="header__profileInfo">
              <PersonAvatar time={"Space Cowboy"}/>
@@ -56,7 +73,8 @@ const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen}) 
 const mapStateToProps = state =>{
     return{
         openChatMenu:state.chat.mobileChat,
-        menuOpen:state.posts.menuOpen
+        menuOpen:state.posts.menuOpen,
+        findFriends:state.friends.findFriends
     }
 }
 const mapDispatchToProps = dispatch =>{

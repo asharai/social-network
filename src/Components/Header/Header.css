@@ -52,10 +52,11 @@ margin: 0;
     outline: none;
     border: none;
     height: 100%;
+    width: 100%;
     box-sizing: border-box;
-    flex-basis: 400px;
+
     padding: 20px;
-    flex-grow: 0.4;
+
 }
 .header__pageName{
     flex-basis: 120px;
@@ -69,6 +70,35 @@ margin: 0;
 .header__mobileMenu{
     display: none;
 }
+.header__searhContainer {
+    position: relative;
+    display: inline-block;
+    height: 100%;
+    box-sizing: border-box;
+    flex-grow: .4;
+    flex-basis: 400px;
+
+
+
+}
+
+.header__searchContent {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+
+
+}
+.header__searhContainer:hover .header__searchContent {
+    display: flex;
+    flex-direction: column
+}
+
+
+
 @media all and (max-width: 800px){
     .header__menu{
        display: none;
