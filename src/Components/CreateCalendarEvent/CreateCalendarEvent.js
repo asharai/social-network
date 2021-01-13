@@ -54,7 +54,7 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
         <h3>Create Event</h3>
         <form className="createCalendarEvent__form" onSubmit={addEventToList}>
             <FormControl variant="outlined" className={classes.formControl}>
-                <InputLabel htmlFor="outlined-age-native-simple">Kind</InputLabel>
+                <InputLabel htmlFor="outlined-age-native-simple" >Kind</InputLabel>
                 <Select
                     native
                     value={event.kind}
@@ -78,14 +78,16 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
             <KeyboardDatePicker
                 disableToolbar
                 variant="inline"
-                format="MM/dd/yyyy"
+                format="DD/MM/yyyy"
                 margin="normal"
                 id="date-picker-inline"
                 label="Event Date"
                 value={event.start}
+                autoOk
                 onChange={(e)=>setEvent({...event,start:new Date(e?._d),end:new Date(e?._d)})}
                 KeyboardButtonProps={{
                     'aria-label': 'change date',
+
                 }}
             />
                 <KeyboardTimePicker
@@ -93,10 +95,13 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
                     id="time-picker"
                     label="Event Time"
                     value={event.start}
+                    autoOk
                     onChange={(e)=>setEvent({...event,start:new Date(e?._d),end:new Date(e?._d)})}
                     KeyboardButtonProps={{
                         'aria-label': 'change time',
+
                     }}/>
+
             </MuiPickersUtilsProvider>
 
 

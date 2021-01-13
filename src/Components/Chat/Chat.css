@@ -65,7 +65,7 @@
 .chat__body{
     height: 540px;
 
-overflow-y: auto;
+   overflow-y: auto;
     background-color: #fff;
     padding: 20px;
 

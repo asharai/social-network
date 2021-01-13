@@ -34,8 +34,15 @@ const AddMessage = ({idx,messagesLength,onAddMessage}) => {
             setText('');
         }
     }
+    const handleKeyPress = (event) => {
+
+        if(event.key == 'Enter'){
+            event.preventDefault()
+            sendMessage()
+        }
+    }
     return (
-        <article className="addMessage">
+        <article className="addMessage" onKeyPress={handleKeyPress}>
             <textarea placeholder="Type your message here..." value={text} onChange={(e)=>setText(e.target.value)}>
 
             </textarea>

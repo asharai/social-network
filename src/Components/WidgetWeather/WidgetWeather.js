@@ -7,7 +7,7 @@ import {connect} from 'react-redux';
 import moment from "moment";
 const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,weatherWeek,celsii}) => {
     useEffect(()=>{
-      axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=37.77&lon=-122.42&exclude=hourly,minutely&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>{
+      axios.get('https://api.openweathermap.org/data/2.5/onecall?lat=55.02&lon=-82.93&exclude=hourly,minutely&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>{
           onSetWeatherWeek(res.data.daily)
       }).catch(err=>console.log(err))
     },[]);
@@ -41,7 +41,7 @@ const WidgetWeather = ({weatherNow,maxWeather,minWeather,img,onSetWeatherWeek,we
                     {forecastItem}
                   </ul>
                     <p className="widgetWeather__day">{`${moment().format('dddd, MMMM D')}th`}</p>
-                    <p>San Francisco,CA</p>
+                    <p>Novosibirsk</p>
                 </div>
 
 

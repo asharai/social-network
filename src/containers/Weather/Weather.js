@@ -16,7 +16,7 @@ import moment from 'moment';
 
 const Weather = ({onSetWeather,weather,weatherWeek,onSetFarenheit,onSetCelsii,celsii}) => {
   useEffect(()=>{
-      axios.get('https://api.openweathermap.org/data/2.5/weather?q=San Francisco&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>onSetWeather(res.data)).catch(err=>console.log(err))
+      axios.get('https://api.openweathermap.org/data/2.5/weather?q=Novosibirsk&appid=68052a1de6d8f29ead68f2c6dd073387').then(res=>onSetWeather(res.data)).catch(err=>console.log(err))
 
   },[])
     const returnValue = val => weather.main ? kelvinToCelsii(val,celsii).toFixed() : 0;

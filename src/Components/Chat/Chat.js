@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect, useMemo, useRef} from 'react';
 import CloseIcon from '@material-ui/icons/Close';
 
 import './Chat.css';
@@ -12,12 +12,15 @@ const Chat = ({chat,open,id,friends,onCloseChat}) => {
             return item.id === id
         })
     }
+    const divRef = useRef(null);
 
 
-    const messages = chat[idx(id,chat)].messages.map((item,i)=>{
+
+
+ const  messages = chat[idx(id,chat)].messages.map((item,i)=>{
+
         return (
-            <li key={Math.round(Math.random()*20) +i} className={item.profile==160? 'chat_personMessage chat__message' : 'chat__message'}>
-
+            <li className={item.profile==160? 'chat_personMessage chat__message' : 'chat__message' } >
                 {
                  i>0 &&  chat[idx(id,chat)].messages[i-1].profile===item.profile ?
                      <span className="chat__messageImg"></span> :
@@ -33,23 +36,12 @@ const Chat = ({chat,open,id,friends,onCloseChat}) => {
             </li>
         )
     })
-    const chatContent = open ? (<div className={"chat"}>
-        <header className="chat__header">
-            <div className="chat__headerContainer">
-                <span className="chat__headerStatus"></span>
-                <h4 className="chat__headerTitle">Chat</h4>
-            </div>
-            <CloseIcon style={{cursor:'pointer'}} onClick={()=>onCloseChat()}/>
-
-        </header>
-        <div className="chat__body">
-
-            {messages}
-        </div>
-        <AddMessage idx={id} messagesLength={chat[idx(id,chat)].messages.length} />
-    </div>) : null;
 
 
+    useEffect(() => {
+        divRef.current.scrollTop=9999;
+        console.log(divRef.current)
+    },[messages]);
     return (
         <div className={open ? "chat active" : 'chat'}>
             <header className="chat__header">
@@ -60,7 +52,7 @@ const Chat = ({chat,open,id,friends,onCloseChat}) => {
                 <CloseIcon style={{cursor:'pointer'}} onClick={()=>onCloseChat()}/>
 
             </header>
-            <div className="chat__body">
+            <div className="chat__body"  ref={divRef}>
 
                 {messages}
             </div>
