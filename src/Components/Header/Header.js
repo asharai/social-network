@@ -12,6 +12,7 @@ import CloseIcon from '@material-ui/icons/Close';
 import * as chatActions from '../../store/actions/Chat'
 import * as postActions from "../../store/actions/Posts";
 import FindFriend from "../FindFriend/FindFriend";
+import ArrowDropUpIcon from '@material-ui/icons/ArrowDropUp';
 const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen,findFriends}) => {
     let location = useLocation().pathname;
     const pageName= ()=>{
@@ -26,13 +27,17 @@ const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen,fi
         }
     }
     const [text,setText]=useState('');
+
     const searchFriends = findFriends.filter(item=>{
         return item.name.toLowerCase().indexOf(text.toLowerCase())!=-1
     }).map(item=>{
         return (
-            <FindFriend idx={item.id} img={item.img} name={item.name} count={item.commonFriends} />
+
+                <FindFriend idx={item.id} img={item.img} name={item.name} count={item.commonFriends} />
+
         )
     })
+    const [visble,setVisible] = useState(false);
 
     return (
         <header className="header">
@@ -43,11 +48,21 @@ const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen,fi
          <p className="header__pageName">{pageName()}</p>
 
             <div className="header__searhContainer">
-                <input type="search" placeholder="Search here people..." value={text} onChange={(e)=>setText(e.target.value)} className="header__search"/>
+                <input type="search" placeholder="Search here people..." value={text} onClick={()=>setVisible(true)} onChange={(e)=>setText(e.target.value)} className="header__search"/>
 
-                <div className="header__searchContent">
+                <div className={visble ? "header__searchContent header__searchContent-active" :"header__searchContent"}>
+                    <div  className="header__searchContent-close">
+
+                        <ArrowDropUpIcon style={{fontSize:'40px'}} onClick={()=>setVisible(false)}/>
+                    </div>
+
                     {searchFriends}
                 </div>
+
+
+
+
+
 
             </div>
 
