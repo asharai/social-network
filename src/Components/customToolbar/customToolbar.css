@@ -1,0 +1,25 @@
+.customToolbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.rbc-btn-group > button{
+    outline: none;
+    border:none;
+    padding: 5px 10px;
+    background:linear-gradient(#2396bf, #0d5b77 40%, #004961 3%, #004961);
+    margin-right: 5px;
+    transition: all .5s;
+
+}
+.rbc-btn-group > button:hover{
+    cursor: pointer;
+    background:  #ff5e3a;
+    color: white;
+
+
+}
+.rbc-btn-group > button:last-child{
+    margin-right: 0;
+}

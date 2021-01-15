@@ -79,3 +79,11 @@
     font-size: 18px;
     margin-bottom: 0;
 }
+@media all and (max-width: 1460px){
+    .widgetWeather{
+        width: 100%;
+    }
+    .widgetWeather__content{
+        width: 100%;
+    }
+}

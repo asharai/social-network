@@ -53,7 +53,7 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
             <CloseIcon className={classes.close} onClick={()=>onCloseModalCalendar()}/>
         <h3>Create Event</h3>
         <form className="createCalendarEvent__form" onSubmit={addEventToList}>
-            <FormControl variant="outlined" className={classes.formControl}>
+            <FormControl variant="outlined" className={classes.formControl} required>
                 <InputLabel htmlFor="outlined-age-native-simple" >Kind</InputLabel>
                 <Select
                     native
@@ -72,8 +72,8 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
                 </Select>
             </FormControl>
 
-            <TextField id="outlined-basic" label="Event Name" variant="outlined" value={event.title} onChange={(e)=>setEvent({...event,title:e.target.value})} className={classes.formItem}/>
-            <TextField id="outlined-basic" label="Event Location" variant="outlined" value={event.location} onChange={(e)=>setEvent({...event,location:e.target.value})} />
+            <TextField id="outlined-basic" label="Event Name" variant="outlined" required value={event.title} onChange={(e)=>setEvent({...event,title:e.target.value})} className={classes.formItem}/>
+            <TextField id="outlined-basic" label="Event Location" variant="outlined" required value={event.location} onChange={(e)=>setEvent({...event,location:e.target.value})} />
             <MuiPickersUtilsProvider utils={MomentUtils}>
             <KeyboardDatePicker
                 disableToolbar
@@ -110,6 +110,7 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
                 label="Event Description"
                 multiline
                 rows={4}
+                required
                 value={event.description}
                 onChange={(e)=>setEvent({...event,description:e.target.value})}
                 variant="outlined"

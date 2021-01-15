@@ -33,7 +33,7 @@ const Header = ({openChatMenu,onToggleChatMenu,onToggleMobileMenuNav,menuOpen,fi
     }).map(item=>{
         return (
 
-                <FindFriend idx={item.id} img={item.img} name={item.name} count={item.commonFriends} />
+                <FindFriend idx={item.id} key={`${item.id}`} img={item.img} name={item.name} count={item.commonFriends} />
 
         )
     })

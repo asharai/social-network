@@ -13,6 +13,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import moment from 'moment';
+import {createMuiTheme} from "@material-ui/core";
 
 const Weather = ({onSetWeather,weather,weatherWeek,onSetFarenheit,onSetCelsii,celsii}) => {
   useEffect(()=>{
@@ -20,13 +21,29 @@ const Weather = ({onSetWeather,weather,weatherWeek,onSetFarenheit,onSetCelsii,ce
 
   },[])
     const returnValue = val => weather.main ? kelvinToCelsii(val,celsii).toFixed() : 0;
+    const theme = createMuiTheme({
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 500,
+                md: 960,
+                lg: 1280,
+                xl: 1920,
+            },
+        },
+    })
     const useStyles = makeStyles((theme) => ({
         formControl: {
           minWidth:'400px',
-            background:'#fff'
+            background:'#fff',
+            [theme.breakpoints.only('xs')]: {
+                minWidth: '220px',
+            },
         },
 
+
     }));
+
     const classes = useStyles();
     const [measure, setMeasure] = React.useState('C');
 
@@ -130,7 +147,7 @@ const Weather = ({onSetWeather,weather,weatherWeek,onSetFarenheit,onSetCelsii,ce
                             </article>
 
                         </div>
-                        {state.checkedB &&     <div className="weather__settings">
+                        {state.checkedB &&     <div className="weather__settings weather__settings-mobile">
                             <h4 className="weather__settingsTitle">Extended Forecast</h4>
                             <ul className="weather__extendedForecast">
                                 {weatherWeekItem}

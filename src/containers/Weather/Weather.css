@@ -170,7 +170,52 @@
 
 }
 @media all and (max-width: 1460px){
-    .weather__settings{
-        width: 700px;
+    .weather__container{
+     grid-template-columns: 1fr;
+
+
     }
+    .weather__rightSide{
+        order:-1;
+    }
+    .weather__settings{
+        margin-left: 0px;
+        width: 100%;
+    }
+    .weather__extendedForecastItem > h3{
+        font-size: 13px;
+    }
+}
+@media all and (max-width: 890px){
+    .weather__extendedForecast{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr;
+    }
+    .weather__settings-mobile{
+        height: 405px;
+    }
+    .weather__extendedForecastItem{
+        width: 100%;
+        border-right: none;
+    }
+    .weather__settingsContent{
+        flex-direction: column;
+    }
+}
+@media all and (max-width: 560px){
+    .weather__extendedForecast{
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+    .weather__settings-mobile{
+        height: 524px;
+    }
+    .weather__container{
+        width: 95%;
+        box-sizing: border-box;
+    }
+
 }

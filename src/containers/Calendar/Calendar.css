@@ -6,11 +6,14 @@
     z-index: -12;
     display: flex;
     flex-direction: column;
+    min-width: 1400px;
+
 }
 .calendar__header{
     padding-top:50px;
-    height: 390px;
+    height: 410px;
     position: relative;
+    box-sizing: border-box;
 }
 .calendar__headerOverlay{
     width: 100%;
@@ -76,4 +79,43 @@
     display: flex;
     color: #3f4257;
     margin-top: 30px;
+}
+@media all and (max-width: 1460px) {
+    .calendar{
+        width: 100%;
+        min-width: 700px;
+    }
+    .calendar__containerContent{
+        flex-direction: column;
+    }
+
+    .calendar__headerContentImg{
+       height: 90px;
+    }
+    .calendar__headerContent{
+        width:80%;
+    }
+}
+@media all and (max-width: 750px) {
+    .calendar__headerContentImg{
+        height:60px;
+    }
+    .calendar{
+box-sizing: border-box;
+        min-width: 0;
+    }
+    .calendar__headerContent > div > h1{
+        font-size: 30px;
+    }
+    .calendar__headerContent > div > p{
+        font-size: 15px;
+    }
+}
+@media all and (max-width: 520px) {
+    .calendar__headerContent > div > p{
+        font-size: 14px;
+    }
+    .calendar__headerContentImg{
+        height:55px;
+    }
 }

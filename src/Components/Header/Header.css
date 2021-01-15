@@ -84,14 +84,14 @@ margin: 0;
 }
 
 .header__searchContent {
-    height: 0;
+    height: 0%;
    overflow: hidden;
     position: absolute;
     background-color: #f1f1f1;
     width: 100%;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
-    transition: all 1.5s;
+    transition: all 1.5s ease-in-out;
 
 }
 .header__searchContent-close{
@@ -108,14 +108,12 @@ margin: 0;
     color:#ff5e3a;
 }
 
-/*.header__searhContainer:hover .header__searchContent {*/
-/*    display: flex;*/
-/*    flex-direction: column*/
-/*}*/
+
 .header__searchContent-active{
     display: flex;
     flex-direction: column;
     height: auto;
+
 }
 
 

@@ -25,7 +25,7 @@ const Post = ({shares,text,idx,commentsCount,date,onDeletePost,likes,imageCommen
     }
     return (
 
-        <article className={newPost ? 'post newPostItem' : "post"}  key={idx}>
+        <article className={newPost ? 'post newPostItem' : "post"} >
             <div className="post__container">
             <div className="post__info">
                 <div className="post__infoPerson">

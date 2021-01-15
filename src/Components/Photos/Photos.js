@@ -34,7 +34,7 @@ const Photos = ({images,idImg,onSetIdImg,onNextImg,onPrevImg,addLiketoImg,remove
             <div className="modal__mainImage">
                 <img  src={item.img} alt=""/>
                 <article className="modal__post">
-                <Post imageComment={true} commentsCount={item.comments.length}  liked={item.likedImg} text={item.text} likes={item.likes}  idx={item.id} shares={item.shares} date={item.date} />
+                <Post imageComment={true} commentsCount={item.comments.length}  liked={item.likedImg} text={item.text} likes={item.likes} key={`${item.id}`} idx={item.id} shares={item.shares} date={item.date} />
                 </article>
             </div>
         )
