@@ -2,24 +2,45 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
-}
-.rbc-btn-group > button{
-    outline: none;
-    border:none;
-    padding: 5px 10px;
-    background:linear-gradient(#2396bf, #0d5b77 40%, #004961 3%, #004961);
-    margin-right: 5px;
-    transition: all .5s;
+    padding: 0;
+    height:60px;
+    background-color: #fff;
+    list-style: none;
+    margin: 0;
 
 }
-.rbc-btn-group > button:hover{
+
+.customToolbar__item{
+    border-left: 1px solid #e6ecf5;
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    background:  #ff5e3a;
-    color: white;
-
+    min-width: 30px;
 
 }
-.rbc-btn-group > button:last-child{
-    margin-right: 0;
+.customToolbar > li{
+height: 100%;
+
+}
+.rbc-btn-group{
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    align-items: center;
+    padding:0 15px;
+}
+.activeView{
+    background-color: rgba(8,221,193,.2);
+
+}
+.customToolbar__arrow{
+    cursor: pointer;
+
+}
+.customToolbar__arrow:hover{
+   color: rgb(8,221,193);
+    transition: all 0.3s;
 }

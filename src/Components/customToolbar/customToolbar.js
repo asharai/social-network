@@ -1,8 +1,8 @@
 import React from 'react';
 import Toolbar from 'react-big-calendar/lib/Toolbar';
-import FormControl from "@material-ui/core/FormControl";
-import InputLabel from "@material-ui/core/InputLabel";
-import NativeSelect from "@material-ui/core/NativeSelect";
+import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
+import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+
 import './customToolbar.css'
 export default class CalendarToolbar extends Toolbar {
 
@@ -12,34 +12,21 @@ export default class CalendarToolbar extends Toolbar {
     }
 
     render() {
+
         return (
-            <div className="customToolbar">
-                <div className="rbc-btn-group">
-                    <button type="button" onClick={() => this.navigate('PREV')}>&lt;</button>
-                    <button type="button" onClick={() => this.navigate('TODAY')}>NOW </button>
-                    <button type="button" onClick={() => this.navigate('NEXT')}>&gt; </button>
-                </div>
-                <div className="rbc-toolbar-label">{this.props.label}</div>
-                <div className="rbc-btn-group">
-                    <FormControl >
-                        <InputLabel htmlFor="uncontrolled-native">View</InputLabel>
-                        <NativeSelect
-                            defaultValue={30}
-                            inputProps={{
-                                name: 'name',
-                                id: 'uncontrolled-native',
-                            }}
-                        >
-                            <option onClick={this.view.bind(null, 'month')}>Month</option>
-                            <option onClick={this.view.bind(null, 'week')}>Week</option>
-                            <option onClick={this.view.bind(null, 'day')}>Day</option>
-                            <option onClick={this.view.bind(null, 'agenda')}>Agenda</option>
+            <ul className="customToolbar">
 
-                        </NativeSelect>
+                <li className="rbc-btn-group">
+                    <ArrowBackIosIcon className="customToolbar__arrow" onClick={() => this.navigate('PREV')} />
+                    <h3 >{this.props.label} </h3>
+                    <ArrowForwardIosIcon className="customToolbar__arrow" onClick={() => this.navigate('NEXT')}/>
 
-                    </FormControl>
-                </div>
-            </div>
+                </li>
+                <li className={this.props.view=='month'?"customToolbar__item activeView" : "customToolbar__item"  } onClick={this.view.bind(null, 'month')}><img src="https://html.crumina.net/html-olympus/svg-icons/month-calendar-icon.svg" alt=""/></li>
+                <li className={this.props.view=='week'?"customToolbar__item activeView" : "customToolbar__item"  }   onClick={this.view.bind(null, 'week')}><img src="https://html.crumina.net/html-olympus/svg-icons/week-calendar-icon.svg" alt=""/></li>
+                <li className={this.props.view=='day'?"customToolbar__item activeView" : "customToolbar__item"  }  onClick={this.view.bind(null, 'day')}><img src="https://html.crumina.net/html-olympus/svg-icons/day-calendar-icon.svg" alt=""/></li>
+
+            </ul>
         );
     }
 }
