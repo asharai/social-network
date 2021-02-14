@@ -119,3 +119,11 @@ box-sizing: border-box;
         height:55px;
     }
 }
+@media all and (max-width: 420px) {
+    .calendar__headerContent > div > p{
+        font-size: 12px;
+    }
+    .calendar__headerContentImg{
+        height:40px;
+    }
+}
