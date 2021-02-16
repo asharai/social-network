@@ -15,8 +15,20 @@ import {
 import InputLabel from "@material-ui/core/InputLabel";
 import Select from "@material-ui/core/Select";
 import FormControl from "@material-ui/core/FormControl";
+import {createMuiTheme} from "@material-ui/core";
 const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events}) => {
     const [selectedDate, setSelectedDate] = useState(Date.now());
+    const theme = createMuiTheme({
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 960,
+                lg: 1280,
+                xl: 1920,
+            },
+        },
+    })
     const useStyles = makeStyles({
 
         close:{
@@ -29,7 +41,15 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
             transition:'all 0.3s',
             '&:hover':{
              color:'#ff5e3a'
-            }
+            }, [theme.breakpoints.between('xs','md')]: {
+        right: '0px',
+    },
+        },
+        formItem:{
+            [theme.breakpoints.between('xs','md')]: {
+               fontSize:'12px',
+                marginTop:'10px'
+            },
         }
     });
 
@@ -73,7 +93,7 @@ const CreateCalendarEvent = ({onCloseModalCalendar,onAddEventToCalendar,events})
             </FormControl>
 
             <TextField id="outlined-basic" label="Event Name" variant="outlined" required value={event.title} onChange={(e)=>setEvent({...event,title:e.target.value})} className={classes.formItem}/>
-            <TextField id="outlined-basic" label="Event Location" variant="outlined" required value={event.location} onChange={(e)=>setEvent({...event,location:e.target.value})} />
+            <TextField id="outlined-basic" label="Event Location" variant="outlined" required value={event.location} onChange={(e)=>setEvent({...event,location:e.target.value})}  className={classes.formItem} />
             <MuiPickersUtilsProvider utils={MomentUtils}>
             <KeyboardDatePicker
                 disableToolbar

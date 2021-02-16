@@ -5,9 +5,20 @@ import CloseIcon from '@material-ui/icons/Close';
 import {makeStyles} from "@material-ui/core/styles";
 import {connect} from 'react-redux';
 import * as calendarActions from '../../store/actions/Calendar'
+import {createMuiTheme} from "@material-ui/core";
 const FullEvent = ({title,start,kind,description,onCloseFullEvent,img}) => {
+    const theme = createMuiTheme({
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 960,
+                lg: 1280,
+                xl: 1920,
+            },
+        },
+    })
     const useStyles = makeStyles({
-
         close:{
             position:'absolute',
             right:'-25px',
@@ -18,7 +29,10 @@ const FullEvent = ({title,start,kind,description,onCloseFullEvent,img}) => {
             transition:'all 0.3s',
             '&:hover':{
                 color:'#ff5e3a'
-            }
+            },
+            [theme.breakpoints.between('xs','md')]: {
+             right: '0px',
+    },
         }
     });
 
